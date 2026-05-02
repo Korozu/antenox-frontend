@@ -110,7 +110,7 @@ export default function SectionContact() {
   }
 
   return (
-    <section id="contact" aria-labelledby="contact-title">
+    <section id="contact" aria-labelledby="contact-title" className="hidden">
       <SectionLabel>05</SectionLabel>
       <h2 id="contact-title" className="font-display text-5xl md:text-8xl text-[#1A1A1A] leading-none mb-4">
         CONTACT

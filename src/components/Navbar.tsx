@@ -6,7 +6,7 @@ const NAV_ITEMS = [
   { href: '#stream',   label: 'STREAMS' },
   // { href: '#videos',   label: 'VIDÉOS' },
   // { href: '#photos',   label: 'PHOTOS' },
-  { href: '#contact',  label: 'CONTACT' },
+  // { href: '#contact',  label: 'CONTACT' },
   { href: '#documents', label: 'DOCUMENTS' },
 ]
 
