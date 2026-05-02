@@ -8,9 +8,9 @@ export default function SectionVideos() {
       <h2 id="videos-title" className="font-display text-5xl md:text-8xl text-[#1A1A1A] leading-none mb-8">
         VIDÉOS
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="flex flex-wrap gap-6">
         {VIDEOS.map((v) => (
-          <div key={v.id} className="flex flex-col gap-2">
+          <div key={v.id} className="flex flex-col gap-2 flex-1 min-w-[280px]">
             <div className="relative aspect-video bg-[#1A1A1A] overflow-hidden border-2 border-[#1A1A1A]">
               <iframe
                 src={`https://www.youtube.com/embed/${v.youtubeId}`}
@@ -30,4 +30,3 @@ export default function SectionVideos() {
     </section>
   )
 }
-

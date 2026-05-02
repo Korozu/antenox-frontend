@@ -3,12 +3,10 @@ export interface Track {
   title: string
   artist?: string
   url: string
-  duration: number
+  duration?: number // Optionnel, sera chargé dynamiquement
 }
 
 export const TRACKS: Track[] = [
-  { id: 'track-01', title: 'Static Pulse',    artist: 'Antenox', url: '/audio/static-pulse.mp3',    duration: 214 },
-  { id: 'track-02', title: 'Concrete Waves',  artist: 'Antenox', url: '/audio/concrete-waves.mp3',  duration: 187 },
-  { id: 'track-03', title: 'Blue Noise',      artist: 'Antenox', url: '/audio/blue-noise.mp3',      duration: 253 },
+  { id: 'track-01', title: 'Bored Inside', artist: 'Antenox', url: '/audio/Bored_Inside.wav' },
+  { id: 'track-02', title: 'Airplane', artist: 'Antenox', url: '/audio/AIRPLANE.wav' },
 ]
-

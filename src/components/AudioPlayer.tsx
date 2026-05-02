@@ -70,7 +70,7 @@ export default function AudioPlayer({ tracks, initialTrackIndex = 0 }: AudioPlay
     audio.load()
     if (isPlaying) audio.play().catch(() => setIsPlaying(false))
     setCurrentTime(0)
-    setDuration(currentTrack.duration)
+    // Ne plus définir la durée ici, elle sera chargée via handleLoadedMetadata
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trackIndex, currentTrack])
 
@@ -189,7 +189,7 @@ export default function AudioPlayer({ tracks, initialTrackIndex = 0 }: AudioPlay
         <input
           type="range"
           min={0}
-          max={duration || currentTrack.duration}
+          max={duration || 0}
           step={0.5}
           value={currentTime}
           onChange={seekTo}
@@ -197,7 +197,7 @@ export default function AudioPlayer({ tracks, initialTrackIndex = 0 }: AudioPlay
           className="flex-1 h-1 cursor-pointer"
         />
         <span className="font-mono text-[10px] text-[#7a7a7a] shrink-0 w-8">
-          {formatTime(duration || currentTrack.duration)}
+          {formatTime(duration)}
         </span>
       </div>
 

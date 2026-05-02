@@ -35,7 +35,7 @@ export default function MusicianCard({ musician, reverse = false }: MusicianCard
         </p>
 
         {musician.quote && (
-          <blockquote className="border-l-4 border-[#1A1A1A] pl-4 font-display text-xl md:text-2xl text-[#1A1A1A] leading-snug">
+          <blockquote className="border-l-4 border-[#1A1A1A] font-display text-xl md:text-2xl text-[#1A1A1A] leading-snug pl-4">
             {musician.quote}
           </blockquote>
         )}
@@ -44,4 +44,3 @@ export default function MusicianCard({ musician, reverse = false }: MusicianCard
     </div>
   )
 }
-

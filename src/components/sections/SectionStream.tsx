@@ -1,12 +1,12 @@
 import SectionLabel from '../SectionLabel'
+import { FaSpotify, FaApple, FaDeezer, FaYoutube } from 'react-icons/fa'
+import type { IconType } from 'react-icons'
 
-const PLATFORMS = [
-  { name: 'Spotify',       href: '#', color: '#1DB954' },
-  { name: 'Apple Music',   href: '#', color: '#fc3c44' },
-  { name: 'Bandcamp',      href: '#', color: '#1da0c3' },
-  { name: 'SoundCloud',    href: '#', color: '#ff5500' },
-  { name: 'Deezer',        href: '#', color: '#a238ff' },
-  { name: 'YouTube Music', href: '#', color: '#ff0000' },
+const PLATFORMS: Array<{ name: string; href: string; color: string; icon: IconType }> = [
+  { name: 'Spotify',       href: 'https://open.spotify.com/intl-fr/artist/4ZpeelFSXU5c2wtESb0ZHB?si=-rC3I57JTbOfduoGSgFutQ', color: '#1DB954', icon: FaSpotify },
+  { name: 'Apple Music',   href: 'https://music.apple.com/fr/artist/antenox/1715163085', color: '#fc3c44', icon: FaApple },
+  { name: 'Deezer',        href: 'https://www.deezer.com/fr/artist/241848561', color: '#a238ff', icon: FaDeezer },
+  { name: 'YouTube Music', href: 'https://www.youtube.com/channel/UCkb4RzKBEuFTUXcXxHRrogQ', color: '#ff0000', icon: FaYoutube },
 ]
 
 export default function SectionStream() {
@@ -14,29 +14,33 @@ export default function SectionStream() {
     <section id="stream" aria-labelledby="stream-title">
       <SectionLabel>03</SectionLabel>
       <h2 id="stream-title" className="font-display text-5xl md:text-8xl text-[#1A1A1A] leading-none mb-8">
-        STREAM
+        STREAMS
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-        {PLATFORMS.map((p) => (
-          <a
-            key={p.name}
-            href={p.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-between gap-4 p-5
-                       border-2 border-[#1A1A1A] bg-[#E5E5E5]
-                       hover:bg-[#1A1A1A] hover:text-[#E5E5E5]
-                       transition-colors duration-200"
-          >
-            <span className="font-display text-2xl tracking-wide">{p.name}</span>
-            <span
-              className="w-3 h-3 rounded-full shrink-0 group-hover:scale-125 transition-transform"
-              style={{ background: p.color }}
-            />
-          </a>
-        ))}
+      <div className="flex flex-wrap gap-3 md:gap-4">
+        {PLATFORMS.map((p) => {
+          const Icon = p.icon
+          return (
+            <a
+              key={p.name}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex-1 min-w-[160px] flex items-center justify-between gap-4 p-4
+                         border-2 border-[#1A1A1A] bg-[#1A1A1A] text-[#E5E5E5]
+                         hover:bg-[#E5E5E5] hover:text-[#1A1A1A] hover:border-[#1A1A1A]
+                         transition-all duration-200 hover:rotate-[-0.5deg] hover:scale-[1.02]
+                         shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)]
+                         hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.4)]"
+            >
+              <span className="font-mono text-sm uppercase tracking-widest font-bold">{p.name}</span>
+              <Icon
+                className="w-7 h-7 shrink-0 transition-all duration-200 group-hover:rotate-[5deg]"
+                style={{ color: p.color }}
+              />
+            </a>
+          )
+        })}
       </div>
     </section>
   )
 }
-

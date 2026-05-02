@@ -11,8 +11,8 @@ export default function SectionApropos() {
       </h2>
 
       {/* Présentation du groupe */}
-      <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-20 md:mb-28">
-        <div className="space-y-5 font-mono text-sm leading-relaxed text-[#1A1A1A]">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center mb-20 md:mb-28">
+        <div className="flex flex-col gap-5 flex-1 font-mono text-sm leading-relaxed text-[#1A1A1A]">
           <p>
             <strong>ANTENOX</strong> est un groupe de rock alternatif fondé en 2019 à Paris,
             à l'intersection du post-punk industriel, du noise rock et des atmosphères
@@ -29,7 +29,7 @@ export default function SectionApropos() {
             sans imploser.
           </p>
         </div>
-        <blockquote className="border-l-4 border-[#2D4B73] pl-5 font-display text-2xl md:text-4xl text-[#2D4B73] leading-tight">
+        <blockquote className="flex-1 border-l-4 border-[#2D4B73] pl-5 font-display text-2xl md:text-4xl text-[#2D4B73] leading-tight">
           {`"Le bruit est la seule honnêteté qui reste."`}
           <cite className="block font-mono text-xs text-[#7a7a7a] mt-4 not-italic tracking-widest uppercase">
             {`— Kael, 2023`}
@@ -47,7 +47,7 @@ export default function SectionApropos() {
       </div>
 
       {/* Fiches musiciens — alternance photo / texte */}
-      <div className="space-y-16 md:space-y-20">
+      <div className="my=10 flex flex-col gap-10">
         {MUSICIANS.map((m, i) => (
           <MusicianCard key={m.name} musician={m} reverse={i % 2 !== 0} />
         ))}
@@ -55,4 +55,3 @@ export default function SectionApropos() {
     </section>
   )
 }
-

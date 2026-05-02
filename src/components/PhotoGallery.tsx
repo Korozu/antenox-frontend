@@ -101,11 +101,11 @@ const PHOTO_DATA: Photo[] = [
 ────────────────────────────────────────── */
 export default function PhotoGallery() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="flex flex-wrap gap-4">
       {PHOTO_DATA.map((photo) => (
         <article
           key={photo.slug}
-          className="group relative overflow-hidden border-2 border-[#1A1A1A] bg-[#1A1A1A]"
+          className="group relative overflow-hidden border-2 border-[#1A1A1A] bg-[#1A1A1A] flex-1 min-w-[280px]"
         >
           <img
             src={photo.src}
@@ -155,4 +155,3 @@ export default function PhotoGallery() {
     </div>
   )
 }
-

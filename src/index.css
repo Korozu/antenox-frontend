@@ -21,7 +21,12 @@ html {
   --border:    #c8c8c8;
   --player-h:  72px;
   --max-w:     1152px;
+}
 
+/* ──────────────────────────────────────────
+   Grain — pseudo-element fixé sur le body
+────────────────────────────────────────── */
+body {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
@@ -29,17 +34,6 @@ html {
   background-color: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* ──────────────────────────────────────────
-   Reset minimal
-────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-/* ──────────────────────────────────────────
-   Grain — pseudo-element fixé sur le body
-────────────────────────────────────────── */
-body {
   min-height: 100dvh;
   padding-bottom: var(--player-h);
   position: relative;
@@ -71,12 +65,11 @@ body::after {
    Sections ancrées — plein écran + séparation
 ────────────────────────────────────────── */
 section[id] {
-  scroll-margin-top: 84px; /* hauteur de la nav sticky (py-8 + texte) */
-  min-height: 100svh;
+  scroll-margin-top: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-block: 3rem;
+  padding-block: 5rem;
   border-bottom: 1px solid var(--border);
 }
 
@@ -84,7 +77,7 @@ section[id] {
 @media (max-width: 640px) {
   section[id] {
     min-height: auto;
-    padding-block: 4rem 3rem;
+    padding-block: 2rem 1.5rem;
   }
 }
 
@@ -112,11 +105,11 @@ section[id]:last-of-type {
   background: var(--fg);
   color: var(--bg);
   font-family: 'Space Mono', monospace;
-  transform: rotate(-1deg);
+  transform: rotate(0deg);
   transition: transform 0.2s ease;
 }
 .flyer-card:hover {
-  transform: rotate(0deg) scale(1.02);
+  transform: rotate(-1deg) scale(1.02);
 }
 
 /* ──────────────────────────────────────────
@@ -142,91 +135,66 @@ section[id]:last-of-type {
 ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
 
 /* ──────────────────────────────────────────
-   Nav — trois états distincts et accessibles
-   • Inactif  : fond rectangulaire blanc semi-transparent
-   • Survol   : fond blanc plein, forme irrégulière
-   • Actif    : fond blanc plein, forme irrégulière + rotation
+   Navbar
 ────────────────────────────────────────── */
 .nav-link {
   position: relative;
-  display: inline-block;
-  transition: transform 0.15s ease;
-}
-
-/* ── Fond rectangulaire de base (inactif) ── */
-.nav-link::before {
-  content: '';
-  position: absolute;
-  inset: -4px -6px; /* extension horizontale réduite pour éviter les chevauchements */
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.15);
-  clip-path: none;
-  transform: none;
-  transition: background 0.18s ease, clip-path 0.18s ease, transform 0.18s ease;
-}
-
-/* Le texte reste au-dessus du pseudo-element */
-.nav-link span {
-  position: relative;
-  z-index: 2;
-  color: rgba(255, 255, 255, 0.70);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.875rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
   transition: color 0.15s ease;
 }
 
-/* ── SURVOL — fond blanc plein, forme grunge ── */
-.nav-link:hover::before,
-.nav-link:focus-visible::before {
+@media (min-width: 768px) {
+  .nav-link {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Fond "tracé à la main" via le filtre SVG */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 4px -3px;
   background: #ffffff;
-  clip-path: polygon(
-    4px  3px,
-    calc(100% - 6px)  0px,
-    100%  4px,
-    calc(100% - 3px)  calc(100% - 3px),
-    calc(100% - 7px)  100%,
-    5px  calc(100% - 2px),
-    0px  calc(100% - 5px),
-    3px  5px
-  );
-  transform: rotate(-0.5deg);
+  opacity: 0;
+  filter: url(#nav-rough);
+  transition: opacity 0.15s ease;
 }
-.nav-link:hover span,
-.nav-link:focus-visible span {
-  color: #1A1A1A;
+
+.nav-link span {
+  position: relative;
+  z-index: 1;
 }
+
+/* ── Survol ── */
 .nav-link:hover {
-  transform: rotate(-0.5deg);
-}
-
-/* ── ACTIF — fond blanc plein, forme grunge + rotation marquée ── */
-.nav-link.is-active::before {
-  background: #ffffff;
-  clip-path: polygon(
-    4px  3px,
-    calc(100% - 6px)  0px,
-    100%  4px,
-    calc(100% - 3px)  calc(100% - 3px),
-    calc(100% - 7px)  100%,
-    5px  calc(100% - 2px),
-    0px  calc(100% - 5px),
-    3px  5px
-  );
-  transform: rotate(-1.8deg);
-}
-.nav-link.is-active span {
   color: #1A1A1A;
 }
-.nav-link.is-active {
-  transform: rotate(-1deg);
+.nav-link:hover::before {
+  opacity: 0.18;
 }
 
-/* Survol sur un lien actif */
-.nav-link.is-active:hover::before {
-  background: #f0f0f0;
-  transform: rotate(-0.8deg);
+/* ── Actif ── */
+.nav-link[aria-current='page'] {
+  color: #1A1A1A;
+}
+.nav-link[aria-current='page']::before {
+  opacity: 1;
+}
+
+/* Survol d'un lien actif */
+.nav-link[aria-current='page']:hover::before {
+  opacity: 0.88;
 }
 
 /* Clic */
 .nav-link:active::before {
-  background: #d0d0d0;
-  transform: rotate(0.3deg);
+  opacity: 0.75;
 }

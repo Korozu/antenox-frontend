@@ -8,31 +8,71 @@ export interface Musician {
 
 export const MUSICIANS: Musician[] = [
   {
-    name: 'Kael',
+    name: 'Vic',
     role: 'Guitare & Voix',
     photo: 'https://picsum.photos/seed/kael/400/530',
-    bio: "Fondateur et frontman d'Antenox, Kael développe depuis l'enfance une obsession pour les guitares saturées et les textes qui grattent. Influencé par Fugazi, Nick Cave et le krautrock, il cherche dans chaque morceau la tension maximale avant la rupture.",
-    quote: '"Je veux que les gens sortent du concert avec quelque chose de cassé en eux — en bien."',
+    bio: "Le rock, pour Vic, c'est dans son ADN familial\n" +
+        "depuis l'enfance. Côté influences, c'est la\n" +
+        "sainte trinité : le grunge sans filtre de Nirvana,\n" +
+        "la puissance de Foo Fighters, et l'attitude cash\n" +
+        "d'Oasis. Sur scène, c'est lui qui hurle et\n" +
+        "balance les riffs, le moteur scénique qui refuse\n" +
+        "toute barrière. Sa mission est simple :\n" +
+        "transformer le public en un chaos organisé et\n" +
+        "suant pour une communion totale à chaque\n" +
+        "\n" +
+        "live.",
+    quote: '"No Worries"',
   },
   {
-    name: 'Mira',
-    role: 'Basse & Synthétiseurs',
-    photo: 'https://picsum.photos/seed/mira/400/530',
-    bio: "Mira est l'architecte sonique du groupe. Sa basse lourde et ses nappes de synthé créent la colonne vertébrale sur laquelle tout repose. Formée au conservatoire avant de tout plaquer pour le noise, elle apporte une rigueur harmonique rare dans le rock alternatif.",
-    quote: '"La basse, c\'est la gravité. Enlève-la et tout s\'envole — mais pas de la bonne façon."',
-  },
-  {
-    name: 'Dov',
+    name: 'Marion',
     role: 'Batterie',
-    photo: 'https://picsum.photos/seed/dov/400/530',
-    bio: "Dov frappe comme si chaque concert était le dernier. Son jeu, à la croisée du jazz free et du hardcore, maintient le groupe dans un état d'urgence permanente. Il est le moteur thermique d'Antenox — bruyant, chaud, irremplaçable.",
+    photo: 'https://picsum.photos/seed/mira/400/530',
+    bio: "Marion, c'est la précision chirurgicale qui\n" +
+        "cimente le chaos d'Antenox, la seule femme\n" +
+        "derrière les fûts. Elle a fait ses classes aux\n" +
+        "percussions avant d'être forgée par la\n" +
+        "puissance et le groove de groupes comme\n" +
+        "Linkin Park, Nothing But Thieves, et The\n" +
+        "Warning. Elle est le métronome humain qui\n" +
+        "assure un tempo nerveux qui ne dévie\n" +
+        "jamais. Le plus fort ? Elle est toujours\n" +
+        "souriante sur scène, la preuve qu'on peut\n" +
+        "allier good vibes et gros rock sans\n" +
+        "\n" +
+        "concessions."
   },
   {
-    name: 'Nyx',
-    role: 'Guitare & Samples',
+    name: 'Alex',
+    role: 'Basse',
+    photo: 'https://picsum.photos/seed/dov/400/530',
+    bio: "Alex joue depuis 15 ans, avec une basse\n" +
+        "quasi greffée aux mains. Autodidacte et\n" +
+        "passionné, il puise son style entre le groove\n" +
+        "explosif de Rage Against the Machine et les\n" +
+        "vibes plus old school d’Iron Maiden ou Deep\n" +
+        "Purple. C’est le pilier tranquille du groupe,\n" +
+        "celui qui garde tout le monde aligné et fait\n" +
+        "tourner l’ensemble avec cohésion et solidité\n" +
+        "– toujours au service du son, toujours au\n" +
+        "\n" +
+        "service du collectif."
+  },
+  {
+    name: 'Rem',
+    role: 'Guitare & Voix',
     photo: 'https://picsum.photos/seed/nyx/400/530',
-    bio: "Arrivée en dernier dans le groupe, Nyx en est aujourd'hui la couleur. Ses textures de guitare ambient et ses samples déconstruits ouvrent des espaces que les autres instruments s'empressent de remplir. Elle vient du monde de la musique électronique et ça s'entend.",
-    quote: '"Je ne joue pas de la guitare. Je joue de l\'espace entre les notes."',
+    bio: 'Rémi tombe dans la musique ado, grâce aux\n' +
+        'groupes que son père lui faisait tourner en\n' +
+        'boucle à la maison. Il chope une gratte à 15\n' +
+        'ans et apprend tout en autodidacte, avec\n' +
+        'passion et persévérance. Son truc, c’est\n' +
+        'composer des riffs qui tabassent, influencés\n' +
+        'par le metal moderne façon Landmvrks,\n' +
+        'Ashen ou Novelists. Toujours à la recherche\n' +
+        'du bon son, entre mélodie bien sentie et gros\n' +
+        '\n' +
+        'mur de guitare.'
   },
 ]
 
