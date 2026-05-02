@@ -7,6 +7,6 @@ export interface Track {
 }
 
 export const TRACKS: Track[] = [
-  { id: 'track-01', title: 'Bored Inside', artist: 'Antenox', url: '/audio/Bored_Inside.wav' },
-  { id: 'track-02', title: 'Airplane', artist: 'Antenox', url: '/audio/AIRPLANE.wav' },
+  { id: 'track-01', title: 'Bored Inside', artist: 'Antenox', url: '/audio/bored_inside.mp3' },
+  { id: 'track-02', title: 'Airplane', artist: 'Antenox', url: '/audio/airplane.mp3' },
 ]
