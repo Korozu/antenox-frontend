@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { FaFileAlt, FaDownload, FaBook } from 'react-icons/fa'
 import type { Document } from '../data/documents'
 
@@ -6,6 +7,8 @@ interface DocumentCardProps {
 }
 
 export default function DocumentCard({ document: doc }: DocumentCardProps) {
+  const { t } = useTranslation()
+
   return (
     <article
       className="relative border-2 border-[#1A1A1A] bg-[#E5E5E5] p-5
@@ -28,10 +31,10 @@ export default function DocumentCard({ document: doc }: DocumentCardProps) {
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="font-display text-xl leading-tight text-[#1A1A1A] mb-1">
-            {doc.title}
+            {t(doc.titleKey)}
           </h3>
           <p className="font-mono text-[10px] uppercase tracking-widest text-[#7a7a7a]">
-            {doc.subtitle}
+            {t(doc.subtitleKey)}
           </p>
         </div>
       </div>
@@ -60,11 +63,11 @@ export default function DocumentCard({ document: doc }: DocumentCardProps) {
                    hover:bg-[#2D4B73] hover:border-[#2D4B73]
                    active:translate-y-[2px] active:shadow-none
                    transition-all duration-150
-                   shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)]
-                   cursor-pointer"
+                   shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)]
+                   hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.4)]"
       >
-        <FaDownload className="w-3 h-3 group-hover:animate-bounce" />
-        <span>TÉLÉCHARGER</span>
+        <FaDownload className="w-3 h-3 group-hover:translate-y-[2px] transition-transform" />
+        {t('documents.download')}
       </a>
 
       {/* Tampon "OFFICIEL" en filigrane */}

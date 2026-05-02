@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import emailjs from '@emailjs/browser'
 import SectionLabel from '../SectionLabel'
 import { EMAILJS_CONFIG } from '../../config/emailjs'
@@ -10,6 +11,7 @@ interface FormData {
 }
 
 export default function SectionContact() {
+  const { t } = useTranslation()
   const formRef = useRef<HTMLFormElement>(null)
 
   const [formData, setFormData] = useState<FormData>({
@@ -42,17 +44,17 @@ export default function SectionContact() {
     const newErrors: Partial<FormData> = {}
 
     if (!formData.from_email.trim()) {
-      newErrors.from_email = 'Email requis'
+      newErrors.from_email = t('contact.email_required')
     } else if (!validateEmail(formData.from_email)) {
-      newErrors.from_email = 'Email invalide'
+      newErrors.from_email = t('contact.email_invalid')
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = 'Objet requis'
+      newErrors.subject = t('contact.subject_required')
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Message requis'
+      newErrors.message = t('contact.message_required')
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -71,7 +73,7 @@ export default function SectionContact() {
       second: '2-digit'
     })
 
-    // Envoi via EmailJS avec sendForm (méthode recommandée)
+    // Envoi via EmailJS
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
@@ -111,12 +113,12 @@ export default function SectionContact() {
 
   return (
     <section id="contact" aria-labelledby="contact-title" className="hidden">
-      <SectionLabel>05</SectionLabel>
+      <SectionLabel>{t('contact.section')}</SectionLabel>
       <h2 id="contact-title" className="font-display text-5xl md:text-8xl text-[#1A1A1A] leading-none mb-4">
-        CONTACT
+        {t('contact.title')}
       </h2>
       <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#7a7a7a] mb-8">
-        — Tournée, Booking & Management
+        — {t('contact.subtitle')}
       </p>
 
       <div className="max-w-2xl mx-auto">
@@ -143,7 +145,7 @@ export default function SectionContact() {
                   htmlFor="email"
                   className="block font-mono text-xs uppercase tracking-[0.2em] text-[#1A1A1A] mb-2 font-bold"
                 >
-                  [ Email ]
+                  {t('contact.email_label')}
                 </label>
                 <input
                   type="email"
@@ -151,7 +153,7 @@ export default function SectionContact() {
                   name="from_email"
                   value={formData.from_email}
                   onChange={handleChange}
-                  placeholder="votre.email@exemple.com"
+                  placeholder={t('contact.email_placeholder')}
                   className={`w-full px-4 py-3 
                             font-mono text-sm text-[#1A1A1A]
                             bg-[#E5E5E5] bg-opacity-50
@@ -177,7 +179,7 @@ export default function SectionContact() {
                   htmlFor="subject"
                   className="block font-mono text-xs uppercase tracking-[0.2em] text-[#1A1A1A] mb-2 font-bold"
                 >
-                  [ Objet ]
+                  {t('contact.subject_label')}
                 </label>
                 <input
                   type="text"
@@ -185,7 +187,7 @@ export default function SectionContact() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  placeholder="Booking, demande de renseignements..."
+                  placeholder={t('contact.subject_placeholder')}
                   className={`w-full px-4 py-3 
                             font-mono text-sm text-[#1A1A1A]
                             bg-[#E5E5E5] bg-opacity-50
@@ -211,14 +213,14 @@ export default function SectionContact() {
                   htmlFor="message"
                   className="block font-mono text-xs uppercase tracking-[0.2em] text-[#1A1A1A] mb-2 font-bold"
                 >
-                  [ Message ]
+                  {t('contact.message_label')}
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Votre message ici..."
+                  placeholder={t('contact.message_placeholder')}
                   rows={6}
                   className={`w-full px-4 py-3 
                             font-mono text-sm text-[#1A1A1A]
@@ -249,55 +251,36 @@ export default function SectionContact() {
                            bg-[#1A1A1A] text-[#E5E5E5]
                            border-2 border-[#1A1A1A]
                            font-mono text-sm uppercase tracking-[0.25em] font-black
-                           transition-all duration-150
                            hover:bg-[#2D4B73] hover:border-[#2D4B73]
-                           hover:translate-x-[4px] hover:translate-y-[4px]
-                           active:translate-x-[2px] active:translate-y-[2px]
                            disabled:opacity-50 disabled:cursor-not-allowed
-                           shadow-[6px_6px_0px_0px_rgba(26,26,26,0.4)]
-                           hover:shadow-[2px_2px_0px_0px_rgba(26,26,26,0.4)]
-                           active:shadow-[0px_0px_0px_0px_rgba(26,26,26,0.4)]"
+                           transition-all duration-150
+                           shadow-[4px_4px_0_0_rgba(26,26,26,0.4)]
+                           hover:shadow-[6px_6px_0_0_rgba(26,26,26,0.5)]
+                           active:translate-y-[2px] active:shadow-[2px_2px_0_0_rgba(26,26,26,0.4)]"
                 >
-                  {isSubmitting ? '[ ENVOI EN COURS... ]' : '[ ENVOYER ]'}
+                  {isSubmitting ? t('contact.submitting') : t('contact.submit')}
                 </button>
               </div>
 
               {/* Messages de statut */}
               {submitStatus === 'success' && (
                 <div className="p-4 border-2 border-[#2D4B73] bg-[#2D4B73] bg-opacity-10">
-                  <p className="font-mono text-xs text-[#1A1A1A] uppercase tracking-widest text-center font-bold">
-                    ✓ Message envoyé avec succès !
+                  <p className="font-mono text-xs text-[#2D4B73] uppercase tracking-widest text-center">
+                    ✓ {t('contact.success')}
                   </p>
                 </div>
               )}
 
               {submitStatus === 'error' && (
                 <div className="p-4 border-2 border-[#ff0000] bg-[#ff0000] bg-opacity-10">
-                  <p className="font-mono text-xs text-[#1A1A1A] uppercase tracking-widest text-center font-bold">
-                    ✗ Erreur lors de l'envoi. Veuillez réessayer.
+                  <p className="font-mono text-xs text-[#ff0000] uppercase tracking-widest text-center">
+                    ✗ {t('contact.error')}
                   </p>
                 </div>
               )}
             </div>
-
-            {/* Tampon "URGENT" en filigrane */}
-            <div className="absolute bottom-4 right-4 opacity-[0.06] pointer-events-none rotate-[-12deg]">
-              <div className="w-24 h-24 rounded-full border-4 border-[#1A1A1A] flex items-center justify-center">
-                <span className="font-display text-sm leading-none">
-                  URGENT
-                </span>
-              </div>
-            </div>
           </div>
         </form>
-
-        {/* Note informative */}
-        <div className="mt-6 p-4 border-l-4 border-[#2D4B73] bg-[#1A1A1A] bg-opacity-5 rotate-1">
-          <p className="font-mono text-[10px] text-[#5a5a5a] leading-relaxed">
-            <span className="font-bold text-[#2D4B73] uppercase">Info :</span> Nous répondons généralement sous 48h.
-            Pour les demandes urgentes, contactez-nous directement par téléphone au +33 6 XX XX XX XX.
-          </p>
-        </div>
       </div>
     </section>
   )

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { Track } from '../data/tracks'
 
 export type { Track }
@@ -52,6 +53,7 @@ const IconVolume = () => (
    Composant principal
 ────────────────────────────────────────── */
 export default function AudioPlayer({ tracks, initialTrackIndex = 0 }: AudioPlayerProps) {
+  const { t } = useTranslation()
   const audioRef = useRef<HTMLAudioElement>(null)
 
   const [trackIndex, setTrackIndex] = useState<number>(initialTrackIndex)
@@ -144,7 +146,7 @@ export default function AudioPlayer({ tracks, initialTrackIndex = 0 }: AudioPlay
     <section
       className="audio-player fixed bottom-0 left-0 right-0 z-[10000]
                  flex flex-col md:flex-row items-center gap-1 md:gap-3 px-3 md:px-8 py-1 md:py-2"
-      aria-label="Lecteur audio"
+      aria-label={t('audio.aria_label')}
     >
       {/* Audio natif — pas de track car c'est de la musique, pas de la vidéo parlée */}
       <audio
@@ -179,7 +181,7 @@ export default function AudioPlayer({ tracks, initialTrackIndex = 0 }: AudioPlay
           <button
             onClick={prev}
             disabled={trackIndex === 0}
-            aria-label="Piste précédente"
+            aria-label={t('audio.previous')}
             className="text-[#E5E5E5] hover:text-[#3d6399] disabled:opacity-30 transition-colors p-1.5 md:p-1 -m-1.5 md:m-0"
           >
             <IconPrev />
@@ -187,7 +189,7 @@ export default function AudioPlayer({ tracks, initialTrackIndex = 0 }: AudioPlay
 
           <button
             onClick={togglePlay}
-            aria-label={isPlaying ? 'Pause' : 'Lecture'}
+            aria-label={isPlaying ? t('audio.pause') : t('audio.play')}
             className="w-10 h-10 md:w-9 md:h-9 rounded-full bg-[#2D4B73] hover:bg-[#3d6399] text-white flex items-center justify-center transition-colors shrink-0 active:scale-95 touch-manipulation"
           >
             {isPlaying ? <IconPause /> : <IconPlay />}
@@ -196,7 +198,7 @@ export default function AudioPlayer({ tracks, initialTrackIndex = 0 }: AudioPlay
           <button
             onClick={next}
             disabled={trackIndex === tracks.length - 1}
-            aria-label="Piste suivante"
+            aria-label={t('audio.next')}
             className="text-[#E5E5E5] hover:text-[#3d6399] disabled:opacity-30 transition-colors p-1.5 md:p-1 -m-1.5 md:m-0"
           >
             <IconNext />
@@ -215,7 +217,7 @@ export default function AudioPlayer({ tracks, initialTrackIndex = 0 }: AudioPlay
             step={0.5}
             value={currentTime}
             onChange={seekTo}
-            aria-label="Progression"
+            aria-label={t('audio.progress')}
             className="flex-1 h-1 cursor-pointer touch-manipulation"
           />
           <span className="font-mono text-[8px] md:text-[10px] text-[#7a7a7a] shrink-0 w-6 md:w-8">
@@ -233,7 +235,7 @@ export default function AudioPlayer({ tracks, initialTrackIndex = 0 }: AudioPlay
             step={0.05}
             value={volume}
             onChange={(e) => setVolume(Number(e.target.value))}
-            aria-label="Volume"
+            aria-label={t('audio.volume')}
             className="w-20 h-1 cursor-pointer"
           />
         </div>

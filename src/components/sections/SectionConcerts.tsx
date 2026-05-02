@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import SectionLabel from '../SectionLabel'
 import ConcertCard from '../ConcertCard'
 import PastConcerts from '../PastConcerts'
@@ -12,6 +13,7 @@ function todayStr() {
 }
 
 export default function SectionConcerts() {
+  const { t } = useTranslation()
   const sorted = [...CONCERTS].sort((a, b) => a.date.localeCompare(b.date))
   const today = todayStr()
   const upcoming = sorted.filter(c => c.date >= today)
@@ -19,9 +21,9 @@ export default function SectionConcerts() {
 
   return (
     <section id="concerts" aria-labelledby="concerts-title">
-      <SectionLabel>02</SectionLabel>
+      <SectionLabel>{t('concerts.section')}</SectionLabel>
       <h2 id="concerts-title" className="font-display text-5xl md:text-8xl text-[#1A1A1A] leading-none mb-8">
-        CONCERTS
+        {t('concerts.title')}
       </h2>
 
       {/* Concerts à venir — cartes */}
@@ -29,7 +31,7 @@ export default function SectionConcerts() {
         <>
           <div className="flex items-center gap-4 mb-4">
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#7a7a7a]">
-              — À venir
+              — {t('concerts.upcoming')}
             </span>
             <div className="flex-1 border-t border-dashed border-[#3a3a3a]" />
             <span className="font-mono text-xs text-[#3a3a3a]">{upcoming.length}</span>
@@ -40,7 +42,7 @@ export default function SectionConcerts() {
         </>
       ) : (
         <p className="font-mono text-sm text-[#7a7a7a] uppercase tracking-widest mb-12">
-          Aucun concert à venir pour le moment.
+          {t('concerts.no_upcoming')}
         </p>
       )}
 

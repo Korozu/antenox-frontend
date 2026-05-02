@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import type { Concert } from '../data/concerts'
 
 interface PastConcertsProps {
@@ -6,6 +7,7 @@ interface PastConcertsProps {
 }
 
 export default function PastConcerts({ concerts }: PastConcertsProps) {
+  const { t, i18n } = useTranslation()
   const years = [...new Set(concerts.map(c => c.date.slice(0, 4)))].sort((a, b) => b.localeCompare(a))
   const [selectedYear, setSelectedYear] = useState<string>('all')
 
@@ -18,7 +20,7 @@ export default function PastConcerts({ concerts }: PastConcertsProps) {
       {/* Titre section */}
       <div className="flex items-center gap-4 mb-4">
         <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#7a7a7a]">
-          — Archives
+          — {t('concerts.past')}
         </span>
         <div className="flex-1 border-t border-dashed border-[#3a3a3a]" />
         <span className="font-mono text-xs text-[#3a3a3a]">{concerts.length}</span>
@@ -33,7 +35,7 @@ export default function PastConcerts({ concerts }: PastConcertsProps) {
               ? 'bg-[#E5E5E5] text-[#1A1A1A] border-[#E5E5E5]'
               : 'bg-transparent text-[#7a7a7a] border-[#3a3a3a] hover:border-[#7a7a7a] hover:text-[#a0a0a0]'}`}
         >
-          Tout
+          {t('concerts.all')}
         </button>
         {years.map(year => (
           <button
@@ -51,17 +53,24 @@ export default function PastConcerts({ concerts }: PastConcertsProps) {
 
       {/* En-têtes colonnes - masqué sur mobile */}
       <div className="hidden md:grid md:grid-cols-[160px_1fr_1fr] gap-x-6 px-0 py-2 mb-0 border-b border-[#555555] bg-[#1A1A1A]">
-        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#9A9A9A] ml-2">Date</span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#9A9A9A] ml-2">Lieu</span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#9A9A9A] ml-2">Ville</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#9A9A9A] ml-2">
+          {t('concerts.date')}
+        </span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#9A9A9A] ml-2">
+          {t('concerts.venue')}
+        </span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#9A9A9A] ml-2">
+          {t('concerts.city')}
+        </span>
       </div>
 
       <div className="max-h-[300px] overflow-y-auto">
         <ul className="flex flex-col">
           {filtered.map((c, i) => {
             const d = new Date(c.date + 'T00:00:00')
-            const day = d.toLocaleDateString('fr-FR', { day: '2-digit' })
-            const month = d.toLocaleDateString('fr-FR', { month: 'short' }).toUpperCase().replace('.', '')
+            const locale = i18n.language === 'fr' ? 'fr-FR' : 'en-US'
+            const day = d.toLocaleDateString(locale, { day: '2-digit' })
+            const month = d.toLocaleDateString(locale, { month: 'short' }).toUpperCase().replace('.', '')
             const year = d.getFullYear()
 
             return (

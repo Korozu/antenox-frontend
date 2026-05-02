@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next'
 import heroImg from '../assets/hero.png'
 import Navbar from './Navbar'
 
 export default function Header() {
+  const { t } = useTranslation()
+
   return (
     <>
       <header className="relative w-full overflow-hidden border-b-2 border-[#1A1A1A]">
@@ -14,7 +17,7 @@ export default function Header() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#E5E5E5]" />
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 md:gap-2">
             <p className="font-mono text-[#E5E5E5] text-[10px] md:text-sm tracking-[0.4em] uppercase opacity-70">
-              Rock Alternatif
+              {t('header.subtitle')}
             </p>
             <h1
               className="font-display text-[clamp(3.5rem,14vw,14rem)] leading-none text-[#E5E5E5] select-none"
@@ -23,7 +26,7 @@ export default function Header() {
               ANTENOX
             </h1>
             <p className="font-mono text-[#2D4B73] text-[10px] md:text-sm tracking-[0.4em] md:tracking-[0.6em] uppercase">
-              ── Depuis 2019 ──
+              ── {t('header.since')} ──
             </p>
           </div>
         </div>

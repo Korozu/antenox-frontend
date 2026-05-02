@@ -1,14 +1,6 @@
 import { useEffect, useState } from 'react'
-
-const NAV_ITEMS = [
-  { href: '#apropos',  label: 'À PROPOS' },
-  { href: '#concerts', label: 'CONCERTS' },
-  { href: '#stream',   label: 'STREAMS' },
-  // { href: '#videos',   label: 'VIDÉOS' },
-  // { href: '#photos',   label: 'PHOTOS' },
-  // { href: '#contact',  label: 'CONTACT' },
-  { href: '#documents', label: 'DOCUMENTS' },
-]
+import { useTranslation } from 'react-i18next'
+import LanguageSelector from './LanguageSelector'
 
 // Icônes SVG inline pour le menu burger
 const MenuIcon = () => (
@@ -27,8 +19,16 @@ const CloseIcon = () => (
 )
 
 export default function Navbar() {
+  const { t } = useTranslation()
   const [activeSection, setActiveSection] = useState<string>('apropos')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
+
+  const NAV_ITEMS = [
+    { href: '#apropos',  label: t('nav.about') },
+    { href: '#concerts', label: t('nav.concerts') },
+    { href: '#stream',   label: t('nav.streams') },
+    { href: '#documents', label: t('nav.documents') },
+  ]
 
   useEffect(() => {
     const NAV_HEIGHT = 80
@@ -89,58 +89,64 @@ export default function Navbar() {
           </a>
 
           {/* Menu Desktop */}
-          <ul className="hidden lg:flex items-center gap-3">
-            {NAV_ITEMS.map(({ href, label }) => {
-              const id = href.slice(1)
-              const isActive = activeSection === id
+          <div className="hidden lg:flex items-center gap-3">
+            <ul className="flex items-center gap-3">
+              {NAV_ITEMS.map(({ href, label }) => {
+                const id = href.slice(1)
+                const isActive = activeSection === id
 
-              return (
-                <li key={href}>
-                  <a
-                    href={href}
-                    className={`
-                      relative block px-4 py-2 
-                      font-mono text-xs font-black uppercase tracking-[0.15em]
-                      border-2 rounded-[2px]
-                      transition-all duration-150
-                      hover:rotate-[-0.5deg] hover:translate-y-[-2px]
-                      active:translate-y-[1px]
-                      ${isActive 
-                        ? 'text-[#E5E5E5] bg-[#1A1A1A] border-[#1A1A1A] shadow-[4px_4px_0_0_rgba(26,26,26,0.4)]' 
-                        : 'text-[#1A1A1A] bg-[#E5E5E5] border-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#E5E5E5] shadow-[2px_2px_0_0_rgba(26,26,26,0.3)] hover:shadow-[3px_3px_0_0_rgba(26,26,26,0.4)]'
-                      }
-                    `}
-                    aria-current={isActive ? 'page' : undefined}
-                  >
-                    {/* Barre accent pour le lien actif */}
-                    {isActive && (
-                      <span className="absolute top-0 left-0 right-0 h-[3px] bg-[#2D4B73]" />
-                    )}
+                return (
+                  <li key={href}>
+                    <a
+                      href={href}
+                      className={`
+                        relative block px-4 py-2 
+                        font-mono text-xs font-black uppercase tracking-[0.15em]
+                        border-2 rounded-[2px]
+                        transition-all duration-150
+                        hover:rotate-[-0.5deg] hover:translate-y-[-2px]
+                        active:translate-y-[1px]
+                        ${isActive 
+                          ? 'text-[#E5E5E5] bg-[#1A1A1A] border-[#1A1A1A] shadow-[4px_4px_0_0_rgba(26,26,26,0.4)]' 
+                          : 'text-[#1A1A1A] bg-[#E5E5E5] border-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#E5E5E5] shadow-[2px_2px_0_0_rgba(26,26,26,0.3)] hover:shadow-[3px_3px_0_0_rgba(26,26,26,0.4)]'
+                        }
+                      `}
+                      aria-current={isActive ? 'page' : undefined}
+                    >
+                      {/* Barre accent pour le lien actif */}
+                      {isActive && (
+                        <span className="absolute top-0 left-0 right-0 h-[3px] bg-[#2D4B73]" />
+                      )}
 
-                    <span className="relative z-10">
-                      {label}
-                    </span>
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
+                      <span className="relative z-10">
+                        {label}
+                      </span>
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+            <LanguageSelector />
+          </div>
 
-          {/* Menu Burger Mobile */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden relative p-2 border-2 border-[#1A1A1A] rounded-[2px]
-                       bg-[#1A1A1A] text-[#E5E5E5]
-                       hover:bg-[#2D4B73] hover:border-[#2D4B73]
-                       active:translate-y-[2px]
-                       shadow-[3px_3px_0_0_rgba(26,26,26,0.4)]
-                       active:shadow-[1px_1px_0_0_rgba(26,26,26,0.4)]
-                       transition-all duration-150"
-            aria-label="Menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
-          </button>
+          {/* Conteneur pour mobile : Language Selector + Menu Burger */}
+          <div className="lg:hidden flex items-center gap-2">
+            <LanguageSelector />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="relative p-2 border-2 border-[#1A1A1A] rounded-[2px]
+                         bg-[#1A1A1A] text-[#E5E5E5]
+                         hover:bg-[#2D4B73] hover:border-[#2D4B73]
+                         active:translate-y-[2px]
+                         shadow-[3px_3px_0_0_rgba(26,26,26,0.4)]
+                         active:shadow-[1px_1px_0_0_rgba(26,26,26,0.4)]
+                         transition-all duration-150"
+              aria-label="Menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+            </button>
+          </div>
         </div>
 
         {/* Menu Mobile Déroulant */}

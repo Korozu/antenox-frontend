@@ -1,8 +1,8 @@
 export interface Document {
   id: string
-  title: string
-  subtitle: string
-  fileSize?: string // Optionnel, sera chargé dynamiquement
+  titleKey: string      // Clé i18n pour le titre
+  subtitleKey: string   // Clé i18n pour le sous-titre
+  fileSize?: string     // Optionnel, sera chargé dynamiquement
   url: string
   category: 'rider' | 'stage' | 'tech' | 'press'
 }
@@ -10,15 +10,15 @@ export interface Document {
 export const DOCUMENTS: Document[] = [
   {
     id: 'doc-01',
-    title: 'FICHE TECHNIQUE',
-    subtitle: 'Version 2026',
+    titleKey: 'documents.tech_sheet',
+    subtitleKey: 'documents.tech_sheet_subtitle',
     url: '/documents/antenox-fiche-technique.pdf',
     category: 'tech'
   },
   {
     id: 'doc-04',
-    title: 'PRESS BOOK',
-    subtitle: 'Dossier de Presse',
+    titleKey: 'documents.press_book',
+    subtitleKey: 'documents.press_book_subtitle',
     url: '/documents/antenox-press-book.pdf',
     category: 'press'
   }

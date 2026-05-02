@@ -1,0 +1,103 @@
+{
+  "header": {
+    "subtitle": "Rock Alternatif",
+    "since": "Depuis 2019"
+  },
+  "nav": {
+    "about": "À PROPOS",
+    "concerts": "CONCERTS",
+    "streams": "STREAMS",
+    "documents": "DOCUMENTS"
+  },
+  "about": {
+    "title": "À PROPOS",
+    "section": "01",
+    "intro_p1": "<strong>ANTENOX</strong>, c'est une décharge d'<strong>énergie brute</strong>. Le groupe balance un <strong>rock alternatif</strong> nerveux, entre <strong>punk</strong> et <strong>grunge</strong>, avec des grosses <strong>guitares saturées</strong>, des <strong>ambiances planantes</strong> et une rythmique bien vénère.",
+    "intro_p2": "Chaque live est un <strong>moment intense</strong> et sans filtre, où le public est embarqué dans la tempête. Pas de barrière, pas de frime – juste une <strong>grosse claque sonore</strong> et une belle sueur collective.",
+    "intro_p3": "Formé en décembre 2022 à Lille, <strong>ANTENOX</strong> réunit <strong>Victor</strong> (chant/guitare), <strong>Rémi</strong> (guitare/chœurs), <strong>Alexandre</strong> (basse) et <strong>Marion</strong> (batterie) autour d'un <strong>son puissant</strong> et sans détour. Le groupe compose et enregistre tout en <strong>home studio</strong>, à l'instinct, avec les moyens du bord et <strong>beaucoup de cœur</strong>. Après un an de création, ils montent sur scène en <strong>décembre 2023</strong> au <strong>Black Lab</strong> (Wasquehal) et sortent leur premier single <strong>Airplane</strong>. En 2024, ils enchaînent avec <strong>Bored Inside</strong> et multiplient les dates entre les <strong>Hauts-de-France</strong> et la <strong>Belgique</strong>.",
+    "musicians_separator": "Les musiciens"
+  },
+  "musicians": {
+    "vic": {
+      "role": "Guitare & Voix",
+      "bio": "Le rock, pour Vic, c'est dans son ADN familial depuis l'enfance. Côté influences, c'est la sainte trinité : le grunge sans filtre de Nirvana, la puissance de Foo Fighters, et l'attitude cash d'Oasis. Sur scène, c'est lui qui hurle et balance les riffs, le moteur scénique qui refuse toute barrière. Sa mission est simple : transformer le public en un chaos organisé et suant pour une communion totale à chaque live.",
+      "quote": "\"No Worries\""
+    },
+    "marion": {
+      "role": "Batterie",
+      "bio": "Marion, c'est la précision chirurgicale qui cimente le chaos d'Antenox, la seule femme derrière les fûts. Elle a fait ses classes aux percussions avant d'être forgée par la puissance et le groove de groupes comme Linkin Park, Nothing But Thieves, et The Warning. Elle est le métronome humain qui assure un tempo nerveux qui ne dévie jamais. Le plus fort ? Elle est toujours souriante sur scène, la preuve qu'on peut allier good vibes et gros rock sans concessions."
+    },
+    "alex": {
+      "role": "Basse",
+      "bio": "Alex joue depuis 15 ans, avec une basse quasi greffée aux mains. Autodidacte et passionné, il puise son style entre le groove imparable de Red Hot Chili Peppers et la puissance brute de Royal Blood. Toujours concentré et sérieux sur scène, il assure les fondations solides qui permettent au reste du groupe de partir en vrille quand il faut."
+    },
+    "rem": {
+      "role": "Guitare & Chœurs",
+      "bio": "Rémi tombe dans la musique ado, grâce aux\ngroupes que son père lui faisait tourner en\nboucle à la maison. Il chope une gratte à 15\nans et apprend tout en autodidacte, avec\npassion et persévérance. Son truc, c’est\ncomposer des riffs qui tabassent, influencés\npar le metal moderne façon Landmvrks,\nAshen ou Novelists. Toujours à la recherche\ndu bon son, entre mélodie bien sentie et gros\n\nmur de guitare."
+    }
+  },
+  "concerts": {
+    "title": "CONCERTS",
+    "section": "02",
+    "upcoming": "À venir",
+    "past": "Concerts passés",
+    "no_upcoming": "Aucun concert à venir pour le moment.",
+    "show_past": "Afficher les concerts passés",
+    "hide_past": "Masquer",
+    "free_entry": "Entrée libre",
+    "tickets": "Billets",
+    "tickets_soon": "Billetterie bientôt",
+    "upcoming_concert": "Concert à venir",
+    "date": "Date",
+    "venue": "Lieu",
+    "city": "Ville",
+    "all": "Tout"
+  },
+  "streams": {
+    "title": "STREAMS",
+    "section": "03"
+  },
+  "documents": {
+    "title": "DOCUMENTS",
+    "section": "06",
+    "subtitle": "Documents Officiels",
+    "note_title": "Note :",
+    "note_text": "Ces documents sont destinés aux professionnels du spectacle et de la presse. Pour toute question, contactez notre management via la section contact.",
+    "download": "Télécharger",
+    "tech_sheet": "FICHE TECHNIQUE",
+    "tech_sheet_subtitle": "Version 2026",
+    "press_book": "PRESS BOOK",
+    "press_book_subtitle": "Dossier de Presse"
+  },
+  "contact": {
+    "title": "CONTACT",
+    "section": "05",
+    "subtitle": "Tournée, Booking & Management",
+    "email_label": "[ Email ]",
+    "email_placeholder": "votre.email@exemple.com",
+    "email_required": "Email requis",
+    "email_invalid": "Email invalide",
+    "subject_label": "[ Objet ]",
+    "subject_placeholder": "Booking, demande de renseignements...",
+    "subject_required": "Objet requis",
+    "message_label": "[ Message ]",
+    "message_placeholder": "Écrivez votre message ici...",
+    "message_required": "Message requis",
+    "submit": "Envoyer",
+    "submitting": "Envoi...",
+    "success": "Message envoyé avec succès !",
+    "error": "Une erreur est survenue. Réessayez."
+  },
+  "audio": {
+    "aria_label": "Lecteur audio",
+    "previous": "Piste précédente",
+    "play": "Lecture",
+    "pause": "Pause",
+    "next": "Piste suivante",
+    "progress": "Progression",
+    "volume": "Volume"
+  },
+  "footer": {
+    "rights": "Tous droits réservés"
+  }
+}

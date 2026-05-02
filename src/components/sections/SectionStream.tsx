@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import SectionLabel from '../SectionLabel'
 import { FaSpotify, FaApple, FaDeezer, FaYoutube } from 'react-icons/fa'
 import type { IconType } from 'react-icons'
@@ -10,11 +11,13 @@ const PLATFORMS: Array<{ name: string; href: string; color: string; icon: IconTy
 ]
 
 export default function SectionStream() {
+  const { t } = useTranslation()
+
   return (
     <section id="stream" aria-labelledby="stream-title">
-      <SectionLabel>03</SectionLabel>
+      <SectionLabel>{t('streams.section')}</SectionLabel>
       <h2 id="stream-title" className="font-display text-5xl md:text-8xl text-[#1A1A1A] leading-none mb-8">
-        STREAMS
+        {t('streams.title')}
       </h2>
       <div className="flex flex-wrap gap-3 md:gap-4">
         {PLATFORMS.map((p) => {
