@@ -16,7 +16,7 @@ export default function LanguageSelector() {
                  font-mono text-[10px] uppercase tracking-[0.2em]
                  border-2 border-[#1A1A1A] bg-[#E5E5E5]
                  hover:bg-[#1A1A1A] hover:text-[#E5E5E5]
-                 transition-all duration-200
+                 transition-all duration-200 hover:cursor-pointer
                  shadow-[2px_2px_0px_0px_rgba(26,26,26,0.3)]
                  hover:shadow-[3px_3px_0px_0px_rgba(26,26,26,0.4)]
                  hover:rotate-[-1deg]
