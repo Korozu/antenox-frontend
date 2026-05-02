@@ -5,6 +5,8 @@ import SectionConcerts from '../components/sections/SectionConcerts'
 import SectionStream from '../components/sections/SectionStream'
 import SectionVideos from '../components/sections/SectionVideos'
 import SectionPhotos from '../components/sections/SectionPhotos'
+import SectionContact from '../components/sections/SectionContact'
+import SectionDocuments from '../components/sections/SectionTechnique'
 import { TRACKS } from '../data/tracks'
 
 export default function HomePage() {
@@ -18,6 +20,8 @@ export default function HomePage() {
         <SectionStream />
         <SectionVideos />
         <SectionPhotos />
+        <SectionContact />
+        <SectionDocuments />
       </main>
 
       <footer className="border-t-2 border-[#1A1A1A]">

@@ -3,7 +3,7 @@ import { VIDEOS } from '../../data/videos'
 
 export default function SectionVideos() {
   return (
-    <section id="videos" aria-labelledby="videos-title">
+    <section id="videos" aria-labelledby="videos-title" className="hidden">
       <SectionLabel>04</SectionLabel>
       <h2 id="videos-title" className="font-display text-5xl md:text-8xl text-[#1A1A1A] leading-none mb-8">
         VIDÉOS
