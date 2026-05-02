@@ -27,6 +27,7 @@ export default function Navbar() {
     { href: '#apropos',  label: t('nav.about') },
     { href: '#concerts', label: t('nav.concerts') },
     { href: '#stream',   label: t('nav.streams') },
+    { href: '#contact',   label: t('nav.contact') },
     { href: '#documents', label: t('nav.documents') },
   ]
 
