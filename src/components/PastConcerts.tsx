@@ -49,8 +49,8 @@ export default function PastConcerts({ concerts }: PastConcertsProps) {
         ))}
       </div>
 
-      {/* En-têtes colonnes */}
-      <div className="grid grid-cols-[160px_1fr_1fr] gap-x-6 px-0 py-2 mb-0 border-b border-[#555555] bg-[#1A1A1A]">
+      {/* En-têtes colonnes - masqué sur mobile */}
+      <div className="hidden md:grid md:grid-cols-[160px_1fr_1fr] gap-x-6 px-0 py-2 mb-0 border-b border-[#555555] bg-[#1A1A1A]">
         <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#9A9A9A] ml-2">Date</span>
         <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#9A9A9A] ml-2">Lieu</span>
         <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#9A9A9A] ml-2">Ville</span>
@@ -67,31 +67,31 @@ export default function PastConcerts({ concerts }: PastConcertsProps) {
             return (
               <li
                 key={c.id}
-                className={`grid grid-cols-[160px_1fr_1fr] gap-x-6 items-baseline group
+                className={`flex flex-col md:grid md:grid-cols-[160px_1fr_1fr] gap-x-6 group
                   ${i % 2 === 0 ? 'bg-[#2A2A2A]' : 'bg-[#333333]'}
                   ${i !== filtered.length - 1 ? 'border-b border-[#444444]' : ''}
                   hover:bg-[#3D3D3D] transition-colors`}
               >
                 {/* Date */}
-                <div className="py-3 pr-6 shrink-0 ml-2">
+                <div className="py-3 px-3 md:pr-6 md:px-0 shrink-0 md:ml-2 flex items-baseline gap-2">
                   <span className="font-display text-xl leading-none text-[#D4D4D4] group-hover:text-[#FFFFFF] transition-colors">
                     {day}
                   </span>
-                  <span className="font-mono text-[10px] text-[#9A9A9A] group-hover:text-[#C8C8C8] transition-colors ml-1.5 uppercase tracking-widest">
+                  <span className="font-mono text-[10px] text-[#9A9A9A] group-hover:text-[#C8C8C8] transition-colors uppercase tracking-widest">
                     {month} {year}
                   </span>
                 </div>
 
                 {/* Venue */}
-                <div className="py-3">
-                  <span className="font-mono text-sm text-[#E5E5E5] group-hover:text-[#FFFFFF] transition-colors ml-2">
+                <div className="py-0 md:py-3 px-3 md:px-0">
+                  <span className="font-mono text-sm text-[#E5E5E5] group-hover:text-[#FFFFFF] transition-colors md:ml-2">
                     {c.venue}
                   </span>
                 </div>
 
                 {/* Ville */}
-                <div className="py-3">
-                  <span className="font-mono text-xs text-[#A0A0A0] group-hover:text-[#C8C8C8] transition-colors uppercase tracking-widest ml-2">
+                <div className="py-0 pb-3 md:py-3 px-3 md:px-0">
+                  <span className="font-mono text-xs text-[#A0A0A0] group-hover:text-[#C8C8C8] transition-colors uppercase tracking-widest md:ml-2">
                     {c.city}
                   </span>
                 </div>

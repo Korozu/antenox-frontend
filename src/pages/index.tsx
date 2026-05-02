@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import AudioPlayer from '../components/AudioPlayer';
+import Footer from '../components/Footer';
 import SectionApropos from '../components/sections/SectionApropos';
 import SectionConcerts from '../components/sections/SectionConcerts';
 import SectionStream from '../components/sections/SectionStream';
@@ -25,27 +26,7 @@ export default function HomePage() {
                 <SectionDocuments/>
             </main>
 
-            <footer className="border-t-2 border-[#1A1A1A]">
-                <div className="site-wrapper px-4 md:px-8 py-8
-                        flex flex-col md:flex-row items-center justify-between gap-4">
-                    <span className="font-display text-3xl text-[#1A1A1A]">ANTENOX</span>
-                    <p className="font-mono text-[11px] text-[#7a7a7a] text-center">
-                        © {new Date().getFullYear()} Antenox — Tous droits réservés
-                    </p>
-                    <div className="flex gap-4">
-                        {['Instagram', 'Facebook', 'YouTube'].map((s) => (
-                            <a
-                                key={s}
-                                href="#"
-                                className="font-mono text-[10px] uppercase tracking-widest text-[#7a7a7a]
-                           hover:text-[#2D4B73] transition-colors"
-                            >
-                                {s}
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            </footer>
+            <Footer />
 
             <AudioPlayer tracks={TRACKS}/>
         </>
