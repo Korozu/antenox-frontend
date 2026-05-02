@@ -86,9 +86,6 @@ export default function Navbar() {
                            select-none">
               ANTENOX
             </h1>
-            {/* Effet tampon rouge */}
-            <div className="absolute -bottom-1 -right-1 w-16 h-16 border-[3px] border-[#ff0000]
-                            rounded-full opacity-20 rotate-[15deg] pointer-events-none" />
           </a>
 
           {/* Menu Desktop */}
