@@ -3,9 +3,9 @@ import AudioPlayer from '../components/AudioPlayer';
 import SectionApropos from '../components/sections/SectionApropos';
 import SectionConcerts from '../components/sections/SectionConcerts';
 import SectionStream from '../components/sections/SectionStream';
-import SectionVideos from '../components/sections/SectionVideos';
-import SectionPhotos from '../components/sections/SectionPhotos';
-import SectionContact from '../components/sections/SectionContact';
+//import SectionVideos from '../components/sections/SectionVideos';
+//import SectionPhotos from '../components/sections/SectionPhotos';
+//import SectionContact from '../components/sections/SectionContact';
 import SectionDocuments from '../components/sections/SectionTechnique';
 import { TRACKS } from '../data/tracks';
 
