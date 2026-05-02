@@ -1,5 +1,10 @@
+import { BrowserRouter } from 'react-router-dom'
 import { Routes } from '@generouted/react-router'
 
 export default function App() {
-  return <Routes />
+  return (
+    <BrowserRouter basename="/antenox-frontend">
+      <Routes />
+    </BrowserRouter>
+  )
 }
