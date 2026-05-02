@@ -24,14 +24,14 @@ export default function LanguageSelector() {
       aria-label="Changer de langue"
       title={currentLang === 'fr' ? 'Switch to English' : 'Passer en Français'}
     >
-      {/* Indicateur visuel de la langue active */}
-      <span className="relative flex items-center gap-1.5">
-        <span className={`transition-opacity ${currentLang === 'fr' ? 'opacity-100 font-bold' : 'opacity-40'}`}>
-          FR
+      {/* Indicateur visuel de la langue active avec drapeaux */}
+      <span className="relative flex items-center gap-1.5 text-base">
+        <span className={`transition-all ${currentLang === 'fr' ? 'opacity-100 scale-110' : 'opacity-40 scale-90'}`}>
+          🇫🇷
         </span>
-        <span className="text-[#7a7a7a]">/</span>
-        <span className={`transition-opacity ${currentLang === 'en' ? 'opacity-100 font-bold' : 'opacity-40'}`}>
-          EN
+        <span className="text-[#7a7a7a] text-[10px]">/</span>
+        <span className={`transition-all ${currentLang === 'en' ? 'opacity-100 scale-110' : 'opacity-40 scale-90'}`}>
+          🇬🇧
         </span>
       </span>
 
@@ -51,4 +51,3 @@ export default function LanguageSelector() {
     </button>
   )
 }
-
