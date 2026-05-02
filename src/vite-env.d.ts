@@ -8,9 +8,5 @@ interface ImportMetaEnv {
 
 interface ImportMeta {
   readonly env: ImportMetaEnv
-}
-
-declare module 'virtual:generouted' {
-  export const routes: any
-  export const paths: any
+  readonly BASE_URL: string
 }
