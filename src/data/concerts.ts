@@ -9,11 +9,11 @@ export interface Concert {
 }
 
 export const CONCERTS: Concert[] = [
-    { id: 'c5', date: '2023-05-12', venue: 'The Black Lab', city: 'Wasquehal', country: 'FR', isFree: true },
     { id: 'c1', date: '2026-04-04', venue: 'Tremplin Barb\'n\'Rock Festival', city: 'Crèvecoeur-le-grand', country: 'FR', isFree: true },
-    { id: 'c4', date: '2026-06-30', venue: 'The Black Lab', city: 'Wasquehal', country: 'FR', isFree: true },
     { id: 'c2', date: '2026-05-09', venue: 'Tremplin Les Agités du Mélange', city: 'Vieux-Condé', country: 'FR', isFree: true },
     { id: 'c3', date: '2026-06-20', venue: 'Fête de la Musique', city: 'Carnières', country: 'FR', isFree: true },
+    { id: 'c4', date: '2026-06-30', venue: 'The Black Lab', city: 'Wasquehal', country: 'FR', isFree: true },
+    { id: 'c5', date: '2023-12-05', venue: 'The Black Lab', city: 'Wasquehal', country: 'FR', isFree: true },
     { id: 'c6', date: '2024-11-02', venue: 'Halloween Music Festival', city: 'Frameries', country: 'BE' },
     { id: 'c7', date: '2024-11-09', venue: 'The Black Lab', city: 'Wasquehal', country: 'FR', isFree: true },
     { id: 'c8', date: '2024-12-06', venue: 'Le Passage à Niveau', city: 'Béthune', country: 'FR' },
