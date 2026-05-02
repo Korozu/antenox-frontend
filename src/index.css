@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────
+   Scroll doux global
+────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ──────────────────────────────────────────
+   Variables DA Antenox
+────────────────────────────────────────── */
+:root {
+  --bg:        #E5E5E5;
+  --fg:        #1A1A1A;
+  --accent:    #2D4B73;
+  --accent-lt: #3d6399;
+  --muted:     #7a7a7a;
+  --border:    #c8c8c8;
+  --player-h:  72px;
+  --max-w:     1152px;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--fg);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ──────────────────────────────────────────
+   Reset minimal
+────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ──────────────────────────────────────────
+   Grain — pseudo-element fixé sur le body
+────────────────────────────────────────── */
+body {
+  min-height: 100dvh;
+  padding-bottom: var(--player-h);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  mix-blend-mode: multiply;
+}
+
+/* ──────────────────────────────────────────
+   Centrage du site
+────────────────────────────────────────── */
+.site-wrapper {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* ──────────────────────────────────────────
+   Sections ancrées — plein écran + séparation
+────────────────────────────────────────── */
+section[id] {
+  scroll-margin-top: 84px; /* hauteur de la nav sticky (py-8 + texte) */
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Sur mobile, pas besoin de plein écran strict — le contenu respire mieux */
+@media (max-width: 640px) {
+  section[id] {
+    min-height: auto;
+    padding-block: 4rem 3rem;
+  }
+}
+
+section[id]:last-of-type {
+  border-bottom: none;
+}
+
+/* ──────────────────────────────────────────
+   Typographie brutaliste
+────────────────────────────────────────── */
+.font-display {
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+/* ──────────────────────────────────────────
+   Flyer — section concerts
+────────────────────────────────────────── */
+.flyer-card {
+  border: 2px solid var(--fg);
+  background: var(--fg);
+  color: var(--bg);
+  font-family: 'Space Mono', monospace;
+  transform: rotate(-1deg);
+  transition: transform 0.2s ease;
+}
+.flyer-card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* ──────────────────────────────────────────
+   Audio Player
+────────────────────────────────────────── */
+.audio-player {
+  height: var(--player-h);
+  background: var(--fg);
+  color: var(--bg);
+  border-top: 2px solid var(--accent);
+}
+
+.audio-player input[type='range'] {
+  accent-color: var(--accent-lt);
+}
+
+/* ──────────────────────────────────────────
+   Scrollbar discrète
+────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* ──────────────────────────────────────────
+   Nav — trois états distincts et accessibles
+   • Inactif  : fond rectangulaire blanc semi-transparent
+   • Survol   : fond blanc plein, forme irrégulière
+   • Actif    : fond blanc plein, forme irrégulière + rotation
+────────────────────────────────────────── */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+/* ── Fond rectangulaire de base (inactif) ── */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  inset: -4px -6px; /* extension horizontale réduite pour éviter les chevauchements */
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.15);
+  clip-path: none;
+  transform: none;
+  transition: background 0.18s ease, clip-path 0.18s ease, transform 0.18s ease;
+}
+
+/* Le texte reste au-dessus du pseudo-element */
+.nav-link span {
+  position: relative;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.70);
+  transition: color 0.15s ease;
+}
+
+/* ── SURVOL — fond blanc plein, forme grunge ── */
+.nav-link:hover::before,
+.nav-link:focus-visible::before {
+  background: #ffffff;
+  clip-path: polygon(
+    4px  3px,
+    calc(100% - 6px)  0px,
+    100%  4px,
+    calc(100% - 3px)  calc(100% - 3px),
+    calc(100% - 7px)  100%,
+    5px  calc(100% - 2px),
+    0px  calc(100% - 5px),
+    3px  5px
+  );
+  transform: rotate(-0.5deg);
+}
+.nav-link:hover span,
+.nav-link:focus-visible span {
+  color: #1A1A1A;
+}
+.nav-link:hover {
+  transform: rotate(-0.5deg);
+}
+
+/* ── ACTIF — fond blanc plein, forme grunge + rotation marquée ── */
+.nav-link.is-active::before {
+  background: #ffffff;
+  clip-path: polygon(
+    4px  3px,
+    calc(100% - 6px)  0px,
+    100%  4px,
+    calc(100% - 3px)  calc(100% - 3px),
+    calc(100% - 7px)  100%,
+    5px  calc(100% - 2px),
+    0px  calc(100% - 5px),
+    3px  5px
+  );
+  transform: rotate(-1.8deg);
+}
+.nav-link.is-active span {
+  color: #1A1A1A;
+}
+.nav-link.is-active {
+  transform: rotate(-1deg);
+}
+
+/* Survol sur un lien actif */
+.nav-link.is-active:hover::before {
+  background: #f0f0f0;
+  transform: rotate(-0.8deg);
+}
+
+/* Clic */
+.nav-link:active::before {
+  background: #d0d0d0;
+  transform: rotate(0.3deg);
+}
