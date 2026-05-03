@@ -27,7 +27,7 @@ export default function SectionApropos() {
         </div>
 
         {/* Citation en post-it rose */}
-        <div className="flex-1">
+          {/*<div className="flex-1">
           <StickyNote color="pink" rotation={1.5} tapeColor="dark">
             <blockquote className="font-handwriting text-2xl md:text-3xl text-[#1A1A1A] leading-tight">
               "Le bruit est la seule honnêteté qui reste."
@@ -36,7 +36,8 @@ export default function SectionApropos() {
               </cite>
             </blockquote>
           </StickyNote>
-        </div>
+
+        </div>*/}
       </div>
 
       {/* Séparateur avec style grunge */}
