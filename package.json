@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "content-collections build && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@content-collections/cli": "^0.1.9",
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/postcss": "^4.2.4",
     "i18next": "^26.0.8",
