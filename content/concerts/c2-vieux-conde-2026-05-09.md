@@ -5,5 +5,6 @@ venue: Tremplin Les Agités du Mélange
 city: Vieux-Condé
 country: FR
 isFree: true
+facebookEventUrl: https://www.facebook.com/events/1854140255252966/
 ---
 

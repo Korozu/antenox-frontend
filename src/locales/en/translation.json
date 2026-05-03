@@ -52,7 +52,8 @@
     "date": "Date",
     "venue": "Venue",
     "city": "City",
-    "all": "All"
+    "all": "All",
+    "facebook_event": "Event"
   },
   "streams": {
     "title": "STREAMS",

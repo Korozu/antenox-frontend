@@ -5,5 +5,6 @@ venue: Fête de la Musique
 city: Carnières
 country: FR
 isFree: true
+facebookEventUrl: https://fb.me/e/7FYmNoChB
 ---
 

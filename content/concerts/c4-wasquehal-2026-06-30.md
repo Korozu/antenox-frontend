@@ -5,5 +5,6 @@ venue: The Black Lab
 city: Wasquehal
 country: FR
 isFree: true
+facebookEventUrl: https://www.facebook.com/events/921695537355981
 ---
 

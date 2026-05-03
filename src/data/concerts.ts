@@ -6,4 +6,5 @@ export interface Concert {
     country: string;
     ticketUrl?: string;
     isFree?: boolean;
+    facebookEventUrl?: string;
 }
