@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import SectionLabel from '../SectionLabel'
 import ConcertCard from '../ConcertCard'
 import PastConcerts from '../PastConcerts'
-import { CONCERTS } from '../../data/concerts'
+import { allConcerts } from 'content-collections';
 
 function todayStr() {
   const now = new Date()
@@ -14,7 +14,7 @@ function todayStr() {
 
 export default function SectionConcerts() {
   const { t } = useTranslation()
-  const sorted = [...CONCERTS].sort((a, b) => a.date.localeCompare(b.date))
+  const sorted = allConcerts.toSorted((a, b) => a.date.localeCompare(b.date))
   const today = todayStr()
   const upcoming = sorted.filter(c => c.date >= today)
   const past = sorted.filter(c => c.date < today).reverse()

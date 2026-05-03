@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "content-collections build && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@content-collections/cli": "^0.1.9",
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/postcss": "^4.2.4",
     "i18next": "^26.0.8",
@@ -18,10 +19,13 @@
     "react-dom": "^19.2.5",
     "react-i18next": "^17.0.6",
     "react-icons": "^5.6.0",
-    "react-router-dom": "^7.14.2"
+    "react-router-dom": "^7.14.2",
+    "concurrently": "^9.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
+    "@content-collections/core": "^0.15.0",
+    "@content-collections/vite": "^0.3.0",
     "@eslint/js": "^10.0.1",
     "@rolldown/plugin-babel": "^0.2.3",
     "@types/babel__core": "^7.20.5",
@@ -39,6 +43,7 @@
     "tailwindcss": "^4.2.4",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "zod": "^4.4.2"
   }
 }
