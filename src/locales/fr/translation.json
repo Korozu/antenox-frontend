@@ -4,14 +4,14 @@
     "since": "Depuis 2019"
   },
   "nav": {
-    "about": "À PROPOS",
+    "about": "LE GROUPE",
     "concerts": "CONCERTS",
     "streams": "STREAMS",
     "contact": "CONTACT",
     "documents": "DOCUMENTS"
   },
   "about": {
-    "title": "À PROPOS",
+    "title": "LE GROUPE",
     "section": "01",
     "intro_p1": "<strong>ANTENOX</strong>, c'est une décharge d'<strong>énergie brute</strong>. Le groupe balance un <strong>rock alternatif</strong> nerveux, entre <strong>punk</strong> et <strong>grunge</strong>, avec des grosses <strong>guitares saturées</strong>, des <strong>ambiances planantes</strong> et une rythmique bien vénère.",
     "intro_p2": "Chaque live est un <strong>moment intense</strong> et sans filtre, où le public est embarqué dans la tempête. Pas de barrière, pas de frime – juste une <strong>grosse claque sonore</strong> et une belle sueur collective.",
@@ -22,7 +22,7 @@
     "vic": {
       "role": "Guitare & Voix",
       "bio": "Le rock, pour Vic, c'est dans son ADN familial depuis l'enfance. Côté influences, c'est la sainte trinité : le grunge sans filtre de Nirvana, la puissance de Foo Fighters, et l'attitude cash d'Oasis. Sur scène, c'est lui qui hurle et balance les riffs, le moteur scénique qui refuse toute barrière. Sa mission est simple : transformer le public en un chaos organisé et suant pour une communion totale à chaque live.",
-      "quote": "\"No Worries\""
+      "quote": "No Worries"
     },
     "marion": {
       "role": "Batterie",

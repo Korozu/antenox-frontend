@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <>
       <header className="relative w-full overflow-hidden border-b-2 border-[#1A1A1A]">
-        <div className="relative h-[280px] md:h-[560px] w-full bg-[#E5E5E5]">
+        <div className="relative h-[180px] md:h-[560px] w-full bg-[#E5E5E5]">
           {/* Image de header */}
           <img
             src="/photos/header.jpg"
@@ -24,10 +24,10 @@ export default function Header() {
           {/* Dégradé noir en bas pour le logo - plus accentué */}
           <div className="absolute bottom-0 left-0 right-0 h-[50%] bg-gradient-to-t from-[#1A1A1A]/85 via-[#1A1A1A]/50 to-transparent" />
 
-          {/* Logo ANTENOX */}
-          <div className="absolute bottom-0 left-0 right-0 py-4 md:py-6">
+          {/* Logo ANTENOX - masqué sur mobile */}
+          <div className="hidden md:block absolute bottom-0 left-0 right-0 py-6">
             <h1
-              className="font-display text-[clamp(2rem,8vw,6rem)] leading-none text-[#E5E5E5] select-none text-center"
+              className="font-display text-[clamp(1.75rem,8vw,6rem)] leading-none text-[#E5E5E5] select-none text-center"
               style={{
                 textShadow: '2px 2px 0px #2D4B73, 4px 4px 8px rgba(0,0,0,0.8)',
               }}

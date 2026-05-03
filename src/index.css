@@ -89,7 +89,6 @@ section[id] {
   flex-direction: column;
   justify-content: center;
   padding-block: 5rem;
-  border-bottom: 1px solid var(--border);
 }
 
 /* Sur mobile, pas besoin de plein écran strict — le contenu respire mieux */

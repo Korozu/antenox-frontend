@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import AudioPlayer from '../components/AudioPlayer';
 import Footer from '../components/Footer';
+import SectionDivider from '../components/SectionDivider';
 import SectionApropos from '../components/sections/SectionApropos';
 import SectionConcerts from '../components/sections/SectionConcerts';
 import SectionStream from '../components/sections/SectionStream';
@@ -17,12 +18,21 @@ export default function HomePage() {
 
             <main className="site-wrapper px-4 md:px-8">
                 <SectionApropos/>
+                <SectionDivider />
+
                 <SectionConcerts/>
+                <SectionDivider />
+
                 <SectionStream/>
+                <SectionDivider />
+
                 {//<SectionVideos/>
                 //<SectionPhotos />
                 }
+
                 <SectionContact/>
+                <SectionDivider />
+
                 <SectionDocuments/>
             </main>
 
