@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import emailjs from '@emailjs/browser'
 import SectionLabel from '../SectionLabel'
+import StickyNote from '../StickyNote'
 import { EMAILJS_CONFIG } from '../../config/emailjs'
 
 interface FormData {
@@ -122,22 +123,12 @@ export default function SectionContact() {
       </p>
 
       <div className="w-full px-4 md:px-0 md:max-w-4xl md:mx-auto">
-        {/* Formulaire légèrement incliné */}
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="relative -rotate-1 hover:rotate-0 transition-transform duration-300"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E")`,
-          }}
-        >
-          <div className="bg-[#E5E5E5] bg-opacity-95 border-2 border-[#1A1A1A] p-6 md:p-8
-                         shadow-[6px_6px_0px_0px_rgba(26,26,26,0.3)]">
-
-            {/* Effet de bande scotchée en haut */}
-            <div className="absolute -top-3 left-8 w-24 h-6 bg-[#7a7a7a] opacity-30 rotate-[-5deg]" />
-            <div className="absolute -top-3 right-8 w-24 h-6 bg-[#7a7a7a] opacity-30 rotate-[5deg]" />
-
+        {/* Formulaire en StickyNote */}
+        <StickyNote color="yellow" rotation={-1.5} tapeColor="light">
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+          >
             <div className="space-y-6">
               {/* Email */}
               <div>
@@ -156,11 +147,11 @@ export default function SectionContact() {
                   placeholder={t('contact.email_placeholder')}
                   className={`w-full px-4 py-3 
                             font-mono text-sm text-[#1A1A1A]
-                            bg-[#E5E5E5] bg-opacity-50
+                            bg-white/50
                             border-2 rounded-[2px]
                             transition-all duration-150
                             placeholder:text-[#7a7a7a] placeholder:italic
-                            focus:outline-none focus:bg-opacity-80
+                            focus:outline-none focus:bg-white/80
                             ${errors.from_email 
                               ? 'border-[#ff0000] focus:border-[#ff0000]' 
                               : 'border-[#1A1A1A] focus:border-[#2D4B73]'
@@ -190,11 +181,11 @@ export default function SectionContact() {
                   placeholder={t('contact.subject_placeholder')}
                   className={`w-full px-4 py-3 
                             font-mono text-sm text-[#1A1A1A]
-                            bg-[#E5E5E5] bg-opacity-50
+                            bg-white/50
                             border-2 rounded-[2px]
                             transition-all duration-150
                             placeholder:text-[#7a7a7a] placeholder:italic
-                            focus:outline-none focus:bg-opacity-80
+                            focus:outline-none focus:bg-white/80
                             ${errors.subject 
                               ? 'border-[#ff0000] focus:border-[#ff0000]' 
                               : 'border-[#1A1A1A] focus:border-[#2D4B73]'
@@ -224,11 +215,11 @@ export default function SectionContact() {
                   rows={6}
                   className={`w-full px-4 py-3 
                             font-mono text-sm text-[#1A1A1A]
-                            bg-[#E5E5E5] bg-opacity-50
+                            bg-white/50
                             border-2 rounded-[2px]
                             transition-all duration-150
                             placeholder:text-[#7a7a7a] placeholder:italic
-                            focus:outline-none focus:bg-opacity-80
+                            focus:outline-none focus:bg-white/80
                             resize-none
                             ${errors.message 
                               ? 'border-[#ff0000] focus:border-[#ff0000]' 
@@ -279,8 +270,8 @@ export default function SectionContact() {
                 </div>
               )}
             </div>
-          </div>
-        </form>
+          </form>
+        </StickyNote>
       </div>
     </section>
   )

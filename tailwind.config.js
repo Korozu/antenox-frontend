@@ -11,6 +11,10 @@ export default {
         'grunge-dark': '#1A1A1A',
         'grunge-blue': '#2D4B73',
       },
+      fontFamily: {
+        typewriter: ['"Courier New"', 'Courier', 'monospace'],
+        handwriting: ['"Indie Flower"', 'cursive'],
+      },
     },
   },
   plugins: [],

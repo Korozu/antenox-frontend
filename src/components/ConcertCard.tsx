@@ -5,12 +5,12 @@ interface ConcertCardProps {
   concert: Concert
 }
 
-function ConcertFooter({ concert: c }: { concert: Concert }) {
+function ConcertFooter({ concert: c }: Readonly<{ concert: Concert }>) {
   const { t } = useTranslation()
 
   if (c.isFree) {
     return (
-      <p className="font-mono text-xs text-[#E5E5E5] uppercase tracking-widest text-center py-3 border border-[#E5E5E5]">
+      <p className="font-typewriter text-xs text-[#1A1A1A] uppercase tracking-widest text-center py-2 border-2 border-dashed border-[#1A1A1A]">
         {t('concerts.free_entry')}
       </p>
     )
@@ -22,15 +22,17 @@ function ConcertFooter({ concert: c }: { concert: Concert }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${t('concerts.tickets')} - ${c.venue} ${c.city}`}
-        className="block w-full text-center font-mono text-xs tracking-widest uppercase
-                   py-3 px-4 bg-[#E5E5E5] text-[#1A1A1A] hover:bg-white transition-colors duration-150"
+        className="block w-full text-center font-typewriter text-xs tracking-widest uppercase
+                   py-2 px-4 bg-[#1A1A1A] text-white hover:bg-[#3a3a3a]
+                   transition-colors duration-150 border-2 border-[#1A1A1A]
+                   shadow-[2px_2px_0_0_rgba(26,26,26,0.3)]"
       >
         {t('concerts.tickets')} →
       </a>
     )
   }
   return (
-    <p className="font-mono text-xs text-[#7a7a7a] uppercase tracking-widest text-center py-3">
+    <p className="font-handwriting text-sm text-[#3a3a3a] text-center py-2">
       {t('concerts.tickets_soon')}
     </p>
   )
@@ -44,31 +46,35 @@ export default function ConcertCard({ concert: c }: ConcertCardProps) {
   return (
     <article
       aria-label={`${t('concerts.upcoming_concert')}: ${c.venue}, ${c.city}`}
-      className="flex flex-col flyer-card transition-opacity duration-200 w-[calc(25%-12px)] min-w-[220px]"
+      className="flex flex-col h-full"
     >
-      {/* En-tête */}
-      <div className="bg-[#E5E5E5] p-4 flex items-start justify-between gap-4">
+      {/* En-tête - style tampon */}
+      <div className="flex items-start justify-between gap-3 mb-4 pb-3 border-b-2 border-dashed border-[#1A1A1A]">
         <div>
-          <span className="font-display text-6xl leading-none text-[#1A1A1A]">
+          <span className="font-display text-5xl leading-none text-[#1A1A1A] block">
             {d.toLocaleDateString(locale, { day: '2-digit' })}
           </span>
-          <p className="font-mono text-xs text-[#1A1A1A] tracking-widest uppercase mt-1">
-            {d.toLocaleDateString(locale, { month: 'long', year: 'numeric' })}
+          <p className="font-typewriter text-[10px] text-[#1A1A1A] tracking-wider uppercase mt-1">
+            {d.toLocaleDateString(locale, { month: 'short', year: 'numeric' })}
           </p>
         </div>
-        <span className="font-mono text-xs font-bold text-[#1A1A1A] border border-[#1A1A1A] px-2 py-1">
+        <span className="font-typewriter text-[9px] font-bold text-[#1A1A1A] border-2 border-[#1A1A1A] px-2 py-1 rotate-12">
           {c.country}
         </span>
       </div>
 
-      {/* Corps */}
-      <div className="flex flex-col gap-2 p-4 flex-1">
-        <p className="font-display text-2xl leading-tight text-[#E5E5E5]">{c.venue}</p>
-        <p className="font-mono text-sm text-[#c8c8c8]">{c.city}</p>
+      {/* Corps - style manuscrit */}
+      <div className="flex flex-col gap-2 flex-1 mb-4">
+        <p className="font-handwriting text-2xl leading-tight text-[#1A1A1A]">
+          {c.venue}
+        </p>
+        <p className="font-typewriter text-xs text-[#3a3a3a] tracking-wide">
+          📍 {c.city}
+        </p>
       </div>
 
       {/* Pied */}
-      <div className="px-4 pb-4">
+      <div>
         <ConcertFooter concert={c} />
       </div>
     </article>
