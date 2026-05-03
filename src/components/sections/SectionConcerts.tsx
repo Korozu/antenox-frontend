@@ -36,7 +36,7 @@ export default function SectionConcerts() {
             <div className="flex-1 border-t border-dashed border-[#3a3a3a]" />
             <span className="font-mono text-xs text-[#3a3a3a]">{upcoming.length}</span>
           </div>
-          <div className="flex flex-wrap gap-4 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12 auto-rows-fr">
             {upcoming.map(c => <ConcertCard key={c.id} concert={c} />)}
           </div>
         </>
