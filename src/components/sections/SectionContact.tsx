@@ -121,7 +121,7 @@ export default function SectionContact() {
         — {t('contact.subtitle')}
       </p>
 
-      <div className="max-w-2xl mx-auto">
+      <div className="w-full px-4 md:px-0 md:max-w-4xl md:mx-auto">
         {/* Formulaire légèrement incliné */}
         <form
           ref={formRef}
