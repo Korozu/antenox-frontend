@@ -265,7 +265,7 @@ export default function SectionContact() {
               {/* Messages de statut */}
               {submitStatus === 'success' && (
                 <div className="p-4 border-2 border-[#2D4B73] bg-[#2D4B73] bg-opacity-10">
-                  <p className="font-mono text-xs text-[#2D4B73] uppercase tracking-widest text-center">
+                  <p className="font-mono text-xs text-white uppercase tracking-widest text-center">
                     ✓ {t('contact.success')}
                   </p>
                 </div>
@@ -273,7 +273,7 @@ export default function SectionContact() {
 
               {submitStatus === 'error' && (
                 <div className="p-4 border-2 border-[#ff0000] bg-[#ff0000] bg-opacity-10">
-                  <p className="font-mono text-xs text-[#ff0000] uppercase tracking-widest text-center">
+                  <p className="font-mono text-xs text-white uppercase tracking-widest text-center">
                     ✗ {t('contact.error')}
                   </p>
                 </div>
