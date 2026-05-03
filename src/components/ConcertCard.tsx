@@ -5,7 +5,7 @@ interface ConcertCardProps {
   concert: Concert
 }
 
-function ConcertFooter({ concert: c }: { concert: Concert }) {
+function ConcertFooter({ concert: c }: Readonly<{ concert: Concert }>) {
   const { t } = useTranslation()
 
   if (c.isFree) {

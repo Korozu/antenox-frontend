@@ -22,6 +22,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
+    "@content-collections/core": "^0.15.0",
+    "@content-collections/vite": "^0.3.0",
     "@eslint/js": "^10.0.1",
     "@rolldown/plugin-babel": "^0.2.3",
     "@types/babel__core": "^7.20.5",
@@ -39,6 +41,7 @@
     "tailwindcss": "^4.2.4",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "zod": "^4.4.2"
   }
 }
