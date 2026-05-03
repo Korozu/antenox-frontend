@@ -36,7 +36,7 @@ function ConcertFooter({ concert: c }: { concert: Concert }) {
   )
 }
 
-export default function ConcertCard({ concert: c }: ConcertCardProps) {
+export default function ConcertCard({ concert: c }: Readonly<ConcertCardProps>) {
   const { t, i18n } = useTranslation()
   const d = new Date(c.date + 'T00:00:00')
   const locale = i18n.language === 'fr' ? 'fr-FR' : 'en-US'
@@ -47,7 +47,7 @@ export default function ConcertCard({ concert: c }: ConcertCardProps) {
       className="flex flex-col flyer-card transition-opacity duration-200 w-[calc(25%-12px)] min-w-[220px]"
     >
       {/* En-tête */}
-      <div className="bg-[#E5E5E5] p-4 flex items-start justify-between gap-4">
+      <div className="bg-white p-4 flex items-start justify-between gap-4">
         <div>
           <span className="font-display text-6xl leading-none text-[#1A1A1A]">
             {d.toLocaleDateString(locale, { day: '2-digit' })}

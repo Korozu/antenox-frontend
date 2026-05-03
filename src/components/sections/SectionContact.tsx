@@ -112,7 +112,7 @@ export default function SectionContact() {
   }
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="hidden">
+    <section id="contact" aria-labelledby="contact-title">
       <SectionLabel>{t('contact.section')}</SectionLabel>
       <h2 id="contact-title" className="font-display text-5xl md:text-8xl text-[#1A1A1A] leading-none mb-4">
         {t('contact.title')}
@@ -131,7 +131,7 @@ export default function SectionContact() {
             backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E")`,
           }}
         >
-          <div className="bg-[#E5E5E5] bg-opacity-95 border-2 border-[#1A1A1A] p-6 md:p-8
+          <div className="bg-white bg-opacity-95 border-2 border-[#1A1A1A] p-6 md:p-8
                          shadow-[6px_6px_0px_0px_rgba(26,26,26,0.3)]">
 
             {/* Effet de bande scotchée en haut */}
@@ -156,7 +156,7 @@ export default function SectionContact() {
                   placeholder={t('contact.email_placeholder')}
                   className={`w-full px-4 py-3 
                             font-mono text-sm text-[#1A1A1A]
-                            bg-[#E5E5E5] bg-opacity-50
+                            bg-[#F5F5F5] bg-opacity-50
                             border-2 rounded-[2px]
                             transition-all duration-150
                             placeholder:text-[#7a7a7a] placeholder:italic
@@ -190,7 +190,7 @@ export default function SectionContact() {
                   placeholder={t('contact.subject_placeholder')}
                   className={`w-full px-4 py-3 
                             font-mono text-sm text-[#1A1A1A]
-                            bg-[#E5E5E5] bg-opacity-50
+                            bg-[#F5F5F5] bg-opacity-50
                             border-2 rounded-[2px]
                             transition-all duration-150
                             placeholder:text-[#7a7a7a] placeholder:italic
@@ -224,7 +224,7 @@ export default function SectionContact() {
                   rows={6}
                   className={`w-full px-4 py-3 
                             font-mono text-sm text-[#1A1A1A]
-                            bg-[#E5E5E5] bg-opacity-50
+                            bg-[#F5F5F5] bg-opacity-50
                             border-2 rounded-[2px]
                             transition-all duration-150
                             placeholder:text-[#7a7a7a] placeholder:italic

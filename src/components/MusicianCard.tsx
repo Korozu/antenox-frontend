@@ -14,7 +14,7 @@ export default function MusicianCard({ musician, reverse = false }: Readonly<Mus
 
   // Rotations variées pour chaque musicien
   const rotations = [2, -1.5, 1.8, -2]
-  const musicianIndex = ['clément', 'mathis', 'erwan', 'antoine'].indexOf(musicianKey)
+  const musicianIndex = ['vic', 'marion', 'alex', 'rem'].indexOf(musicianKey)
   const rotation = rotations[musicianIndex] || 0
 
   return (
