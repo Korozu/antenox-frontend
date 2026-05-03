@@ -9,4 +9,3 @@ export default function SectionLabel({ children }: SectionLabelProps) {
     </span>
   )
 }
-

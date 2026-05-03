@@ -13,7 +13,7 @@ import { TRACKS } from '../data/tracks';
 
 export default function HomePage() {
     return (
-        <>
+        <div className="overflow-x-hidden w-full">
             <Header/>
 
             <main className="site-wrapper px-4 md:px-8">
@@ -39,6 +39,6 @@ export default function HomePage() {
             <Footer />
 
             <AudioPlayer tracks={TRACKS}/>
-        </>
+        </div>
     );
 }

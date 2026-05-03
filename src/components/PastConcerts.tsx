@@ -100,7 +100,7 @@ export default function PastConcerts({ concerts }: PastConcertsProps) {
 
                 {/* Ville */}
                 <div className="py-0 pb-3 md:py-3 px-3 md:px-0">
-                  <span className="font-mono text-xs text-[#A0A0A0] group-hover:text-[#C8C8C8] transition-colors uppercase tracking-widest md:ml-2">
+                  <span className="font-mono text-xs text-[#9A9A9A] group-hover:text-[#C8C8C8] transition-colors md:ml-2">
                     {c.city}
                   </span>
                 </div>

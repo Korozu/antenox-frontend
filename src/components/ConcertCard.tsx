@@ -44,7 +44,7 @@ export default function ConcertCard({ concert: c }: Readonly<ConcertCardProps>) 
   return (
     <article
       aria-label={`${t('concerts.upcoming_concert')}: ${c.venue}, ${c.city}`}
-      className="flex flex-col flyer-card transition-opacity duration-200 w-[calc(25%-12px)] min-w-[220px]"
+      className="flex flex-col flyer-card transition-opacity duration-200 w-full md:w-[calc(25%-12px)] md:min-w-[220px]"
     >
       {/* En-tête */}
       <div className="bg-white p-4 flex items-start justify-between gap-4">
