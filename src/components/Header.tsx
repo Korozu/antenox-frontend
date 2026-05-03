@@ -8,7 +8,7 @@ export default function Header() {
         <div className="relative h-[280px] md:h-[560px] w-full bg-[#E5E5E5]">
           {/* Image de header */}
           <img
-            src="/antenox-frontend/photos/header.jpg"
+            src="/photos/header.jpg"
             alt="Antenox sur scène"
             className="absolute inset-0 w-full h-full object-cover object-top grayscale"
           />
