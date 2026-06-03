@@ -7,4 +7,5 @@ export interface Concert {
     ticketUrl?: string;
     isFree?: boolean;
     facebookEventUrl?: string;
+    featuredBands?: string[];
 }

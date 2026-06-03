@@ -13,7 +13,8 @@ const concerts = defineCollection({
         country: z.string(),
         isFree: z.boolean().optional(),
         ticketUrl: z.string().optional(),
-        facebookEventUrl: z.string().optional()
+        facebookEventUrl: z.string().optional(),
+        featuredBands: z.array(z.string()).optional(),
     }),
 });
 

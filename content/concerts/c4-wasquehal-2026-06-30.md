@@ -6,5 +6,6 @@ city: Wasquehal
 country: FR
 isFree: true
 facebookEventUrl: https://www.facebook.com/events/921695537355981
+featuredBands:
+  - F#ck The System
 ---
-

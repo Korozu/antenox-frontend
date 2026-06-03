@@ -65,6 +65,7 @@ export default function ConcertCard({ concert: c }: Readonly<ConcertCardProps>) 
       <div className="flex flex-col gap-2 p-4 h-32">
         <p className="font-display text-2xl leading-tight text-[#E5E5E5] line-clamp-2">{c.venue}</p>
         <p className="font-mono text-sm text-[#c8c8c8]">{c.city}</p>
+        {c.featuredBands?.length && <p className="text-[10px] text-[#D8D8D8]">Feat {c.featuredBands?.join(', ')}</p>}
       </div>
 
       {/* Pied - toujours à la même position */}
