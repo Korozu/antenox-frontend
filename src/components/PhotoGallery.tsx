@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function PhotoGallery() {
   const navigate = useNavigate()
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {allPhotosAlbums.map((album) => (
         <button
           key={album.title+album.date}
@@ -21,10 +21,11 @@ export default function PhotoGallery() {
                        transition-all duration-500 group-hover:scale-105"
           />
 
-          {/* Overlay info */}
+          {/* Overlay info — toujours visible sur mobile, au hover sur desktop */}
           <div
-            className="absolute inset-0 bg-[#1A1A1A]/80 opacity-0 group-hover:opacity-100
-                       transition-opacity duration-300 flex flex-col justify-end p-4"
+            className="absolute inset-0 bg-[#1A1A1A]/80
+                       opacity-100 md:opacity-0 md:group-hover:opacity-100
+                       transition-opacity duration-300 flex flex-col justify-end p-3 md:p-4"
           >
             <p className="font-mono text-white text-[11px] mt-1 tracking-wide">
               {album.venue}
