@@ -1,15 +1,27 @@
 import { createBrowserRouter } from 'react-router-dom'
 import HomePage from './pages/index';
+import { MainLayout } from './pages/MainLayout.tsx';
+import { AlbumPage } from './pages/album';
 
 export const router = createBrowserRouter(
   [
     {
       path: '/',
-      element: <HomePage />,
-    },
-    {
-      path: '*',
-      element: <HomePage />, // Redirection vers la page d'accueil pour les routes non trouvées
+      element: <MainLayout />,
+      children: [
+          {
+              index: true,
+              element: <HomePage />,
+          },
+          {
+              path: 'photos/:title',
+              element: <AlbumPage />,
+          },
+          {
+              path: '*',
+              element: <HomePage />
+          }
+      ]
     },
   ],
   {

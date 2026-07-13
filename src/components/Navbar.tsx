@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 import LanguageSelector from './LanguageSelector'
 
 // Icônes SVG inline pour le menu burger
@@ -20,15 +21,19 @@ const CloseIcon = () => (
 
 export default function Navbar() {
   const { t } = useTranslation()
+  const location = useLocation()
   const [activeSection, setActiveSection] = useState<string>('apropos')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
 
+  const isPhotoPage = location.pathname.startsWith('/photos/')
+
   const NAV_ITEMS = [
-    { href: '#apropos',  label: t('nav.about') },
-    { href: '#concerts', label: t('nav.concerts') },
-    { href: '#stream',   label: t('nav.streams') },
-    { href: '#contact',   label: t('nav.contact') },
-    { href: '#documents', label: t('nav.documents') },
+    { href: '/#apropos',   label: t('nav.about') },
+    { href: '/#concerts',  label: t('nav.concerts') },
+    { href: '/#stream',    label: t('nav.streams') },
+    { href: '/#photos',    label: t('nav.photos'), photoSection: true },
+    { href: '/#contact',   label: t('nav.contact') },
+    { href: '/#documents', label: t('nav.documents') },
   ]
 
   useEffect(() => {
@@ -36,10 +41,12 @@ export default function Navbar() {
 
     function onScroll() {
       const sections = NAV_ITEMS.map(({ href }) => {
-        const id = href.slice(1)
+        const id = href.replace('/#', '')
         const el = document.getElementById(id)
         return el ? { id, top: el.getBoundingClientRect().top } : null
       }).filter(Boolean) as { id: string; top: number }[]
+
+      if (sections.length === 0) return
 
       const midpoint = window.innerHeight / 2
 
@@ -57,7 +64,7 @@ export default function Navbar() {
     onScroll()
 
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [NAV_ITEMS])
 
   // Fermer le menu mobile lors du clic sur un lien
   const handleLinkClick = () => {
@@ -92,9 +99,9 @@ export default function Navbar() {
           {/* Menu Desktop */}
           <div className="hidden lg:flex items-center gap-3">
             <ul className="flex items-center gap-3">
-              {NAV_ITEMS.map(({ href, label }) => {
-                const id = href.slice(1)
-                const isActive = activeSection === id
+              {NAV_ITEMS.map(({ href, label, photoSection }) => {
+                const id = href.replace('/#', '')
+                const isActive = photoSection ? isPhotoPage || activeSection === id : activeSection === id
 
                 return (
                   <li key={href}>
@@ -156,9 +163,9 @@ export default function Navbar() {
                          shadow-[0_8px_0_0_rgba(26,26,26,0.5)]
                          animate-[slideDown_0.2s_ease-out]">
             <ul className="flex flex-col p-4 gap-2">
-              {NAV_ITEMS.map(({ href, label }) => {
-                const id = href.slice(1)
-                const isActive = activeSection === id
+              {NAV_ITEMS.map(({ href, label, photoSection }) => {
+                const id = href.replace('/#', '')
+                const isActive = photoSection ? isPhotoPage || activeSection === id : activeSection === id
 
                 return (
                   <li key={href}>

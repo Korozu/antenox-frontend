@@ -8,7 +8,8 @@
     "concerts": "GIGS",
     "streams": "STREAMS",
     "contact": "CONTACT",
-    "documents": "DOCUMENTS"
+    "documents": "DOCUMENTS",
+    "photos": "PHOTOS"
   },
   "about": {
     "title": "THE BAND",
@@ -101,5 +102,9 @@
   },
   "footer": {
     "rights": "All rights reserved"
+  },
+  "album": {
+    "back": "Back",
+    "not_found": "Album not found"
   }
 }

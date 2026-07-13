@@ -50,23 +50,23 @@ export default function ScrollReveal({
     if (!isVisible) {
       switch (direction) {
         case 'up':
-          return `${baseClasses} duration-[900ms] opacity-0 translate-y-12 blur-[1px]`
+          return `${baseClasses} duration-[900ms] opacity-0 translate-y-12`
         case 'down':
-          return `${baseClasses} duration-[900ms] opacity-0 -translate-y-12 blur-[1px]`
+          return `${baseClasses} duration-[900ms] opacity-0 -translate-y-12`
         case 'left':
-          return `${baseClasses} duration-[900ms] opacity-0 translate-x-12 blur-[1px]`
+          return `${baseClasses} duration-[900ms] opacity-0 translate-x-12`
         case 'right':
-          return `${baseClasses} duration-[900ms] opacity-0 -translate-x-12 blur-[1px]`
+          return `${baseClasses} duration-[900ms] opacity-0 -translate-x-12`
         case 'fade':
           return `${baseClasses} duration-[800ms] opacity-0`
         case 'glitch':
           return `${baseClasses} duration-[700ms] opacity-0 translate-x-[-3px] translate-y-1`
         default:
-          return `${baseClasses} duration-[900ms] opacity-0 translate-y-12 blur-[1px]`
+          return `${baseClasses} duration-[900ms] opacity-0 translate-y-12`
       }
     }
 
-    return `${baseClasses} duration-[900ms] opacity-100 translate-y-0 translate-x-0 blur-0`
+    return `${baseClasses} duration-[900ms] opacity-100 translate-y-0 translate-x-0`
   }
 
   const getGlitchOverlays = () => {

@@ -18,6 +18,23 @@ const concerts = defineCollection({
     }),
 });
 
+const photosAlbum = defineCollection({
+    name: "photosAlbum",
+    directory: "content/photos",
+    include: "**/*.md",
+    schema: z.object({
+        title: z.string(),
+        date: z.string(),
+        cover: z.string(),
+        photos: z.array(z.string()),
+        venue: z.string(),
+        photographer: z.object({
+            name: z.string(),
+            instagram: z.string().optional(),
+        })
+    }),
+});
+
 export default defineConfig({
-    content: [concerts],
+    content: [concerts, photosAlbum],
 });
