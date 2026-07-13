@@ -52,14 +52,34 @@ export const AlbumPage = () => {
                     <h1 className="font-display text-4xl md:text-5xl text-[#1A1A1A] leading-none tracking-tight">
                         {album.venue}
                     </h1>
-                    <div className="flex items-center gap-4 mt-2">
+                    <div className="flex flex-col gap-2 mt-2">
                         <time dateTime={album.date} className="font-mono text-sm text-[#555] tracking-wide">
                             {new Date(album.date).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' })}
                         </time>
                         {album.photographer && (
-                            <span className="font-mono text-xs text-[#7a7a7a]">
-                                © {album.photographer.instagram
-                                    ? <a href={album.photographer.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[#2D4B73] transition-colors">{album.photographer.name}</a>
+                            <span className="font-mono text-xs font-bold text-[#1A1A1A] uppercase tracking-[0.12em]">
+                                {album.photographer.instagram
+                                    ? (
+                                        <a
+                                            href={`https://instagram.com/${album.photographer.instagram.replace(/^@/, '').replace(/^https?:\/\/(www\.)?instagram\.com\/?/, '')}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 px-2 py-0.5
+                                                       border border-[#1A1A1A] rounded-[2px]
+                                                       bg-[#E5E5E5] text-[#1A1A1A]
+                                                       hover:bg-[#1A1A1A] hover:text-[#E5E5E5]
+                                                       shadow-[2px_2px_0_0_rgba(26,26,26,0.2)]
+                                                       transition-all duration-150"
+                                        >
+                                            {/* Instagram icon */}
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                                <circle cx="12" cy="12" r="4"/>
+                                                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+                                            </svg>
+                                            @{album.photographer.name}
+                                        </a>
+                                    )
                                     : album.photographer.name
                                 }
                             </span>
