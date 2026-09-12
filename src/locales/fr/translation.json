@@ -67,7 +67,8 @@
     "note_title": "Note :",
     "note_text": "Ces documents sont destinés aux professionnels du spectacle et de la presse. Pour toute question, contactez notre management via la section contact.",
     "download": "Télécharger",
-    "tech_sheet": "FICHE TECHNIQUE",
+    "tech_sheet_FR": "FICHE TECHNIQUE FRANÇAIS",
+    "tech_sheet_EN": "FICHE TECHNIQUE ANGLAIS",
     "tech_sheet_subtitle": "Version 2026",
     "press_book": "PRESS BOOK",
     "press_book_subtitle": "Dossier de Presse"

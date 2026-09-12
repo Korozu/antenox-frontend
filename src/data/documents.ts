@@ -10,9 +10,16 @@ export interface Document {
 export const DOCUMENTS: Document[] = [
   {
     id: 'doc-01',
-    titleKey: 'documents.tech_sheet',
+    titleKey: 'documents.tech_sheet_FR',
     subtitleKey: 'documents.tech_sheet_subtitle',
-    url: '/documents/antenox-fiche-technique.pdf',
+    url: '/documents/tech-rider-FR.pdf',
+    category: 'tech'
+  },
+  {
+    id: 'doc-02',
+    titleKey: 'documents.tech_sheet_EN',
+    subtitleKey: 'documents.tech_sheet_subtitle',
+    url: '/documents/tech-rider-EN.pdf',
     category: 'tech'
   },
   {
